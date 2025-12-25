@@ -1,0 +1,45 @@
+.ds-divider {
+  border: none;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Orientation */
+.ds-divider--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.ds-divider--vertical {
+  width: 1px;
+  height: auto;
+  align-self: stretch;
+}
+
+/* Variants */
+.ds-divider--default {
+  background-color: var(--color-gray-200);
+}
+
+.ds-divider--subtle {
+  background-color: var(--color-gray-100);
+}
+
+.ds-divider--strong {
+  background-color: var(--color-gray-300);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .ds-divider--default {
+    background-color: var(--color-gray-700);
+  }
+
+  .ds-divider--subtle {
+    background-color: var(--color-gray-800);
+  }
+
+  .ds-divider--strong {
+    background-color: var(--color-gray-600);
+  }
+}

@@ -1,0 +1,137 @@
+.ds-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: inherit;
+}
+
+/* Display variants */
+.ds-text--display-lg {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+.ds-text--display-md {
+  font-size: 2.75rem;
+  line-height: 1.15;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+.ds-text--display-sm {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+}
+
+/* Heading variants */
+.ds-text--heading-xl {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-bold);
+}
+
+.ds-text--heading-lg {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-semibold);
+}
+
+.ds-text--heading-md {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  font-weight: var(--font-semibold);
+}
+
+.ds-text--heading-sm {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  font-weight: var(--font-semibold);
+}
+
+.ds-text--heading-xs {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  font-weight: var(--font-medium);
+}
+
+/* Body variants */
+.ds-text--body-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.ds-text--body-md {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.ds-text--body-sm {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+/* Label variants */
+.ds-text--label-lg {
+  font-size: var(--text-base);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-medium);
+}
+
+.ds-text--label-md {
+  font-size: var(--text-sm);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-medium);
+}
+
+.ds-text--label-sm {
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-medium);
+}
+
+/* Caption */
+.ds-text--caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-gray-500);
+}
+
+/* Weight modifiers */
+.ds-text--regular {
+  font-weight: var(--font-normal);
+}
+
+.ds-text--medium {
+  font-weight: var(--font-medium);
+}
+
+.ds-text--semibold {
+  font-weight: var(--font-semibold);
+}
+
+.ds-text--bold {
+  font-weight: var(--font-bold);
+}
+
+/* Alignment */
+.ds-text--left {
+  text-align: left;
+}
+
+.ds-text--center {
+  text-align: center;
+}
+
+.ds-text--right {
+  text-align: right;
+}
+
+/* Truncate */
+.ds-text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

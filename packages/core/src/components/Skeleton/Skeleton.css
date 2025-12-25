@@ -1,0 +1,79 @@
+.ds-skeleton {
+  background-color: var(--color-gray-200);
+}
+
+.ds-skeleton--text {
+  height: 1em;
+  border-radius: var(--radius-sm);
+}
+
+.ds-skeleton--circular {
+  border-radius: var(--radius-full);
+}
+
+.ds-skeleton--rectangular {
+  border-radius: var(--radius-md);
+}
+
+.ds-skeleton--pulse {
+  animation: ds-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.ds-skeleton--wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-skeleton--wave::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: ds-skeleton-wave 1.5s ease-in-out infinite;
+}
+
+@keyframes ds-skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes ds-skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-skeleton--pulse,
+  .ds-skeleton--wave::after {
+    animation: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-skeleton {
+    background-color: var(--color-gray-700);
+  }
+
+  .ds-skeleton--wave::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+}

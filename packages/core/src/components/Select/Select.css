@@ -1,0 +1,121 @@
+.ds-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ds-select__label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-gray-700);
+}
+
+.ds-select__description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.ds-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  transition:
+    border-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.ds-select:focus-within {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.ds-select--error {
+  border-color: var(--color-error);
+}
+
+.ds-select--error:focus-within {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 0.1);
+}
+
+.ds-select--disabled {
+  background-color: var(--color-gray-50);
+  cursor: not-allowed;
+}
+
+.ds-select__field {
+  flex: 1;
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  color: var(--color-gray-900);
+  outline: none;
+  cursor: pointer;
+  padding-right: var(--space-8);
+}
+
+.ds-select__field:disabled {
+  cursor: not-allowed;
+  color: var(--color-gray-500);
+}
+
+.ds-select__icon {
+  position: absolute;
+  right: var(--space-3);
+  pointer-events: none;
+  color: var(--color-gray-500);
+}
+
+/* Sizes */
+.ds-select--sm {
+  height: 2rem;
+  padding: 0 var(--space-2);
+}
+
+.ds-select--sm .ds-select__field {
+  font-size: var(--text-sm);
+}
+
+.ds-select--md {
+  height: 2.5rem;
+  padding: 0 var(--space-3);
+}
+
+.ds-select--md .ds-select__field {
+  font-size: var(--text-sm);
+}
+
+.ds-select--lg {
+  height: 3rem;
+  padding: 0 var(--space-4);
+}
+
+.ds-select--lg .ds-select__field {
+  font-size: var(--text-base);
+}
+
+.ds-select__error {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-select__label {
+    color: var(--color-gray-200);
+  }
+
+  .ds-select {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+  }
+
+  .ds-select__field {
+    color: var(--color-gray-100);
+  }
+}

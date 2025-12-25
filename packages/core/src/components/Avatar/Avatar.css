@@ -1,0 +1,63 @@
+.ds-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-600);
+  font-weight: var(--font-medium);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ds-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ds-avatar__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sizes */
+.ds-avatar--xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: var(--text-xs);
+}
+
+.ds-avatar--sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--text-xs);
+}
+
+.ds-avatar--md {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--text-sm);
+}
+
+.ds-avatar--lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--text-base);
+}
+
+.ds-avatar--xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: var(--text-lg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-avatar {
+    background-color: var(--color-gray-700);
+    color: var(--color-gray-300);
+  }
+}

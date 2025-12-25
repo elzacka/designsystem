@@ -1,0 +1,147 @@
+.ds-radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ds-radio__container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  position: relative;
+}
+
+.ds-radio {
+  appearance: none;
+  margin: 0;
+  border: 2px solid var(--color-gray-300);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+}
+
+.ds-radio:hover {
+  border-color: var(--color-gray-400);
+}
+
+.ds-radio:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.ds-radio:checked {
+  border-color: var(--color-primary-600);
+}
+
+.ds-radio:checked:hover {
+  border-color: var(--color-primary-700);
+}
+
+.ds-radio:disabled {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-200);
+  cursor: not-allowed;
+}
+
+.ds-radio--error {
+  border-color: var(--color-error);
+}
+
+.ds-radio__indicator {
+  position: absolute;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-600);
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+  pointer-events: none;
+}
+
+.ds-radio:checked + .ds-radio__indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ds-radio:disabled:checked + .ds-radio__indicator {
+  background-color: var(--color-gray-400);
+}
+
+/* Sizes */
+.ds-radio--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ds-radio--sm + .ds-radio__indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  top: 0.25rem;
+  left: 0.25rem;
+}
+
+.ds-radio--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ds-radio--md + .ds-radio__indicator {
+  width: 0.625rem;
+  height: 0.625rem;
+  top: 0.3125rem;
+  left: 0.3125rem;
+}
+
+.ds-radio--lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ds-radio--lg + .ds-radio__indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  top: 0.375rem;
+  left: 0.375rem;
+}
+
+.ds-radio__label {
+  font-size: var(--text-sm);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ds-radio:disabled ~ .ds-radio__label {
+  color: var(--color-gray-400);
+  cursor: not-allowed;
+}
+
+.ds-radio__description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  margin: 0;
+  padding-left: calc(1.25rem + var(--space-2));
+}
+
+.ds-radio__error {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin: 0;
+  padding-left: calc(1.25rem + var(--space-2));
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-radio {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+  }
+
+  .ds-radio__label {
+    color: var(--color-gray-200);
+  }
+}

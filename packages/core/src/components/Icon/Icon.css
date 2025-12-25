@@ -1,0 +1,31 @@
+.ds-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.ds-icon--xs {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ds-icon--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ds-icon--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ds-icon--lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ds-icon--xl {
+  width: 2rem;
+  height: 2rem;
+}
