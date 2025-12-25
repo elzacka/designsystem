@@ -52,7 +52,7 @@ const SearchWithSuggestionsExample = () => {
         value={value}
         onChange={setValue}
         suggestions={filteredSuggestions}
-        onSuggestionSelect={(suggestion) => {
+        onSuggestionSelect={(suggestion: string) => {
           setValue(suggestion);
         }}
         placeholder="Søk etter rammeverk..."

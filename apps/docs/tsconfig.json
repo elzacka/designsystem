@@ -9,8 +9,14 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@designsystem/core": ["../../packages/core/src"],
+      "@designsystem/tokens": ["../../packages/tokens/src"]
+    },
+    "baseUrl": "."
   },
   "include": ["src", ".storybook"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [{ "path": "../../packages/tokens" }, { "path": "../../packages/core" }]
 }
