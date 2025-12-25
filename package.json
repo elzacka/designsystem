@@ -13,7 +13,17 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "storybook": "pnpm --filter @designsystem/docs storybook",
-    "build-storybook": "pnpm --filter @designsystem/docs build-storybook"
+    "build-storybook": "pnpm --filter @designsystem/docs build-storybook",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,json,md,css}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -21,6 +31,8 @@
     "eslint": "^9.39.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.26",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.5.1",
     "typescript": "^5.9.0",
     "typescript-eslint": "^8.32.1"
