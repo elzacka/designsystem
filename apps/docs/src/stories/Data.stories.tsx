@@ -174,7 +174,14 @@ export const ListWithIcons: StoryObj = {
     <List variant="none">
       <ListItem
         icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         }
@@ -183,7 +190,14 @@ export const ListWithIcons: StoryObj = {
       </ListItem>
       <ListItem
         icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         }
@@ -192,7 +206,14 @@ export const ListWithIcons: StoryObj = {
       </ListItem>
       <ListItem
         icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <circle cx="12" cy="12" r="10" />
           </svg>
         }
@@ -241,13 +262,19 @@ export const AccordionDefault: StoryObj = {
       <AccordionItem value="item-1">
         <AccordionTrigger>Hva er inkludert?</AccordionTrigger>
         <AccordionContent>
-          <p>Abonnementet inkluderer tilgang til alle funksjoner, ubegrenset lagring, og prioritert kundesupport.</p>
+          <p>
+            Abonnementet inkluderer tilgang til alle funksjoner, ubegrenset lagring, og prioritert
+            kundesupport.
+          </p>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Hvordan kan jeg avbestille?</AccordionTrigger>
         <AccordionContent>
-          <p>Du kan avbestille når som helst fra kontoinnstillingene. Abonnementet fortsetter til slutten av faktureringsperioden.</p>
+          <p>
+            Du kan avbestille når som helst fra kontoinnstillingene. Abonnementet fortsetter til
+            slutten av faktureringsperioden.
+          </p>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">

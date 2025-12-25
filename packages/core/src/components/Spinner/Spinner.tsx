@@ -22,13 +22,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
         {...props}
       >
         <svg className="ds-spinner__svg" viewBox="0 0 24 24" fill="none">
-          <circle
-            className="ds-spinner__track"
-            cx="12"
-            cy="12"
-            r="10"
-            strokeWidth="3"
-          />
+          <circle className="ds-spinner__track" cx="12" cy="12" r="10" strokeWidth="3" />
           <circle
             className="ds-spinner__indicator"
             cx="12"

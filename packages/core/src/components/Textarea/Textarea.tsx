@@ -28,13 +28,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const descriptionId = `${id}-description`;
     const errorId = `${id}-error`;
 
-    const describedBy = [
-      ariaDescribedBy,
-      description && descriptionId,
-      error && errorId,
-    ]
-      .filter(Boolean)
-      .join(' ') || undefined;
+    const describedBy =
+      [ariaDescribedBy, description && descriptionId, error && errorId].filter(Boolean).join(' ') ||
+      undefined;
 
     return (
       <div className={cn('ds-textarea-wrapper', className)}>

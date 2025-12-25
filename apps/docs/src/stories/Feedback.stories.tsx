@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Badge, Tag, Avatar, Skeleton, ProgressBar, VStack, HStack } from '@designsystem/core';
+import {
+  Alert,
+  Badge,
+  Tag,
+  Avatar,
+  Skeleton,
+  ProgressBar,
+  VStack,
+  HStack,
+} from '@designsystem/core';
 
 export default {
   title: 'Feedback/Status',
@@ -46,8 +55,12 @@ export const BadgeVariants: StoryObj = {
         <Badge size="lg">Large</Badge>
       </HStack>
       <HStack gap={2}>
-        <Badge variant="success" dot>Online</Badge>
-        <Badge variant="error" dot>Offline</Badge>
+        <Badge variant="success" dot>
+          Online
+        </Badge>
+        <Badge variant="error" dot>
+          Offline
+        </Badge>
       </HStack>
     </VStack>
   ),
@@ -65,9 +78,15 @@ export const TagVariants: StoryObj = {
         <Tag variant="error">Error</Tag>
       </HStack>
       <HStack gap={2}>
-        <Tag removable onRemove={() => {}}>Removable</Tag>
-        <Tag variant="primary" removable onRemove={() => {}}>React</Tag>
-        <Tag variant="success" removable onRemove={() => {}}>TypeScript</Tag>
+        <Tag removable onRemove={() => {}}>
+          Removable
+        </Tag>
+        <Tag variant="primary" removable onRemove={() => {}}>
+          React
+        </Tag>
+        <Tag variant="success" removable onRemove={() => {}}>
+          TypeScript
+        </Tag>
       </HStack>
     </VStack>
   ),

@@ -1,5 +1,2 @@
 export { cn } from './cn';
-export type {
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
-} from './polymorphic';
+export type { PolymorphicComponentPropWithRef, PolymorphicRef } from './polymorphic';

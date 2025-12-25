@@ -17,7 +17,10 @@ export interface FileUploadFile {
   error?: string;
 }
 
-export interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+export interface FileUploadProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange' | 'value'
+> {
   onChange?: (files: File[]) => void;
   onRemove?: (file: FileUploadFile) => void;
   accept?: string;
@@ -185,7 +188,14 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           />
           <div className="ds-file-upload__content">
             <span className="ds-file-upload__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <polyline points="17 8 12 3 7 8" />
                 <line x1="12" y1="3" x2="12" y2="15" />
@@ -194,7 +204,8 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             {dropzoneLabel || (
               <div className="ds-file-upload__label">
                 <span className="ds-file-upload__label-primary">
-                  Dra og slipp filer her, eller <span className="ds-file-upload__link">velg filer</span>
+                  Dra og slipp filer her, eller{' '}
+                  <span className="ds-file-upload__link">velg filer</span>
                 </span>
                 {maxSize && (
                   <span className="ds-file-upload__label-secondary">
@@ -218,14 +229,23 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
               <li key={fileItem.id} className="ds-file-upload__file">
                 <div className="ds-file-upload__file-info">
                   <span className="ds-file-upload__file-icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
                     </svg>
                   </span>
                   <div className="ds-file-upload__file-details">
                     <span className="ds-file-upload__file-name">{fileItem.file.name}</span>
-                    <span className="ds-file-upload__file-size">{formatFileSize(fileItem.file.size)}</span>
+                    <span className="ds-file-upload__file-size">
+                      {formatFileSize(fileItem.file.size)}
+                    </span>
                   </div>
                 </div>
                 {fileItem.progress !== undefined && fileItem.progress < 100 && (
@@ -253,7 +273,14 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
                     }}
                     aria-label={`Fjern ${fileItem.file.name}`}
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M18 6L6 18M6 6l12 12" />
                     </svg>
                   </button>

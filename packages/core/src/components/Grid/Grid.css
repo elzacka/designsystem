@@ -1,6 +1,7 @@
 .ds-grid {
   display: grid;
-  gap: var(--grid-gap-y, var(--grid-gap, var(--space-4))) var(--grid-gap-x, var(--grid-gap, var(--space-4)));
+  gap: var(--grid-gap-y, var(--grid-gap, var(--space-4)))
+    var(--grid-gap-x, var(--grid-gap, var(--space-4)));
 }
 
 .ds-grid--fixed {

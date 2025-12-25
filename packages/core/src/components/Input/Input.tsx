@@ -34,13 +34,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const descriptionId = `${id}-description`;
     const errorId = `${id}-error`;
 
-    const describedBy = [
-      ariaDescribedBy,
-      description && descriptionId,
-      error && errorId,
-    ]
-      .filter(Boolean)
-      .join(' ') || undefined;
+    const describedBy =
+      [ariaDescribedBy, description && descriptionId, error && errorId].filter(Boolean).join(' ') ||
+      undefined;
 
     return (
       <div className={cn('ds-input-wrapper', className)}>
@@ -60,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             `ds-input--${size}`,
             error ? 'ds-input--error' : '',
             props.disabled ? 'ds-input--disabled' : '',
-            (prefix || suffix) ? 'ds-input--has-addon' : ''
+            prefix || suffix ? 'ds-input--has-addon' : ''
           )}
         >
           {prefix && <span className="ds-input__prefix">{prefix}</span>}

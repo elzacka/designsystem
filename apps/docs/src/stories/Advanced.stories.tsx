@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  Search,
-  CopyButton,
-  FileUpload,
-  type FileUploadFile,
-} from '@designsystem/core';
+import { Search, CopyButton, FileUpload, type FileUploadFile } from '@designsystem/core';
 import { useState } from 'react';
 
 const meta: Meta = {
@@ -18,10 +13,7 @@ export const SearchDefault: StoryObj = {
   name: 'Search - Default',
   render: () => (
     <div style={{ maxWidth: '400px' }}>
-      <Search
-        placeholder="Søk etter noe..."
-        onSearch={(value) => console.log('Søk:', value)}
-      />
+      <Search placeholder="Søk etter noe..." onSearch={(value) => console.log('Søk:', value)} />
     </div>
   ),
 };
@@ -51,9 +43,7 @@ const SearchWithSuggestionsExample = () => {
   ];
 
   const filteredSuggestions = value
-    ? allSuggestions.filter((s) =>
-        s.toLowerCase().includes(value.toLowerCase())
-      )
+    ? allSuggestions.filter((s) => s.toLowerCase().includes(value.toLowerCase()))
     : [];
 
   return (
@@ -81,11 +71,7 @@ export const SearchLoading: StoryObj = {
   name: 'Search - Loading',
   render: () => (
     <div style={{ maxWidth: '400px' }}>
-      <Search
-        defaultValue="Søker..."
-        loading
-        placeholder="Søk..."
-      />
+      <Search defaultValue="Søker..." loading placeholder="Søk..." />
     </div>
   ),
 };
@@ -140,11 +126,7 @@ export const FileUploadDefault: StoryObj = {
 export const FileUploadMultiple: StoryObj = {
   name: 'FileUpload - Multiple',
   render: () => (
-    <FileUpload
-      multiple
-      maxFiles={5}
-      onChange={(files) => console.log('Filer valgt:', files)}
-    />
+    <FileUpload multiple maxFiles={5} onChange={(files) => console.log('Filer valgt:', files)} />
   ),
 };
 
@@ -183,19 +165,11 @@ export const FileUploadWithFiles: StoryObj = {
 export const FileUploadWithError: StoryObj = {
   name: 'FileUpload - With Error',
   render: () => (
-    <FileUpload
-      error="Filen er for stor. Maks 5 MB."
-      onChange={(files) => console.log(files)}
-    />
+    <FileUpload error="Filen er for stor. Maks 5 MB." onChange={(files) => console.log(files)} />
   ),
 };
 
 export const FileUploadDisabled: StoryObj = {
   name: 'FileUpload - Disabled',
-  render: () => (
-    <FileUpload
-      disabled
-      onChange={(files) => console.log(files)}
-    />
-  ),
+  render: () => <FileUpload disabled onChange={(files) => console.log(files)} />,
 };

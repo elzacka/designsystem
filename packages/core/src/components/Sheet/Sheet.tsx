@@ -1,9 +1,4 @@
-import {
-  forwardRef,
-  useEffect,
-  useRef,
-  type ReactNode,
-} from 'react';
+import { forwardRef, useEffect, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence, useDragControls, type PanInfo } from 'motion/react';
 import { cn } from '../../utils/cn';
 import './Sheet.css';
@@ -122,12 +117,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
               ref={ref}
               role="dialog"
               aria-modal={modal}
-              className={cn(
-                'ds-sheet',
-                `ds-sheet--${position}`,
-                `ds-sheet--${size}`,
-                className
-              )}
+              className={cn('ds-sheet', `ds-sheet--${position}`, `ds-sheet--${size}`, className)}
               initial={getInitialPosition()}
               animate={{ x: 0, y: 0 }}
               exit={getInitialPosition()}
@@ -143,10 +133,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
               onDragEnd={handleDragEnd}
             >
               {dismissible && position === 'bottom' && (
-                <div
-                  className="ds-sheet__handle"
-                  onPointerDown={(e) => dragControls.start(e)}
-                >
+                <div className="ds-sheet__handle" onPointerDown={(e) => dragControls.start(e)}>
                   <div className="ds-sheet__handle-bar" />
                 </div>
               )}

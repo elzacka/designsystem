@@ -12,10 +12,7 @@ export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-  (
-    { variant = 'text', width, height, animation = 'pulse', className, style, ...props },
-    ref
-  ) => {
+  ({ variant = 'text', width, height, animation = 'pulse', className, style, ...props }, ref) => {
     return (
       <div
         ref={ref}

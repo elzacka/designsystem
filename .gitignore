@@ -18,6 +18,7 @@ storybook-static/
 # IDE
 .idea/
 .vscode/
+.obsidian/
 *.swp
 *.swo
 .DS_Store

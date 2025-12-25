@@ -52,12 +52,7 @@ export const BreadcrumbItem = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>
     }
 
     return (
-      <a
-        ref={ref}
-        href={href}
-        className={cn('ds-breadcrumbs__link', className)}
-        {...props}
-      >
+      <a ref={ref} href={href} className={cn('ds-breadcrumbs__link', className)} {...props}>
         {children}
       </a>
     );

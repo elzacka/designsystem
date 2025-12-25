@@ -4,7 +4,10 @@ import './Checkbox.css';
 
 export type CheckboxSize = 'sm' | 'md' | 'lg';
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'size'
+> {
   label?: string;
   description?: string;
   error?: string;
@@ -47,27 +50,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             }}
             type="checkbox"
             id={id}
-            className={cn(
-              'ds-checkbox',
-              `ds-checkbox--${size}`,
-              error && 'ds-checkbox--error'
-            )}
+            className={cn('ds-checkbox', `ds-checkbox--${size}`, error && 'ds-checkbox--error')}
             aria-invalid={!!error}
             aria-describedby={
-              [description && descriptionId, error && errorId]
-                .filter(Boolean)
-                .join(' ') || undefined
+              [description && descriptionId, error && errorId].filter(Boolean).join(' ') ||
+              undefined
             }
             {...props}
           />
           <svg className="ds-checkbox__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             {indeterminate ? (
-              <path
-                d="M4 8h8"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              <path d="M4 8h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             ) : (
               <path
                 d="M3.5 8.5L6.5 11.5L12.5 5.5"

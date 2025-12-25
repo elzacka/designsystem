@@ -33,12 +33,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const descriptionId = `${id}-description`;
     const errorId = `${id}-error`;
 
-    const describedBy = [
-      description && descriptionId,
-      error && errorId,
-    ]
-      .filter(Boolean)
-      .join(' ') || undefined;
+    const describedBy =
+      [description && descriptionId, error && errorId].filter(Boolean).join(' ') || undefined;
 
     return (
       <div className={cn('ds-select-wrapper', className)}>

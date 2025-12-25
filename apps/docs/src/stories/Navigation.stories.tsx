@@ -46,7 +46,9 @@ export const TabsWithDisabled: StoryObj = {
     <Tabs defaultValue="tab1">
       <TabsList>
         <Tab value="tab1">Aktiv</Tab>
-        <Tab value="tab2" disabled>Deaktivert</Tab>
+        <Tab value="tab2" disabled>
+          Deaktivert
+        </Tab>
         <Tab value="tab3">Tilgjengelig</Tab>
       </TabsList>
       <TabPanel value="tab1">
@@ -80,7 +82,14 @@ export const BreadcrumbsWithIcons: StoryObj = {
   render: () => (
     <Breadcrumbs>
       <BreadcrumbItem href="/">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
@@ -94,13 +103,7 @@ export const BreadcrumbsWithIcons: StoryObj = {
 // Pagination Stories
 const PaginationExample = () => {
   const [page, setPage] = useState(1);
-  return (
-    <Pagination
-      currentPage={page}
-      totalPages={10}
-      onPageChange={setPage}
-    />
-  );
+  return <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />;
 };
 
 export const PaginationDefault: StoryObj = {
@@ -110,22 +113,14 @@ export const PaginationDefault: StoryObj = {
 
 export const PaginationCompact: StoryObj = {
   name: 'Pagination - Compact',
-  render: () => (
-    <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
-  ),
+  render: () => <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />,
 };
 
 export const PaginationManyPages: StoryObj = {
   name: 'Pagination - Many Pages',
   render: () => {
     const [page, setPage] = useState(50);
-    return (
-      <Pagination
-        currentPage={page}
-        totalPages={100}
-        onPageChange={setPage}
-      />
-    );
+    return <Pagination currentPage={page} totalPages={100} onPageChange={setPage} />;
   },
 };
 
@@ -135,9 +130,7 @@ export const SkipLinkDefault: StoryObj = {
   render: () => (
     <div>
       <SkipLink href="#main-content">Hopp til hovedinnhold</SkipLink>
-      <p style={{ marginTop: '2rem' }}>
-        Trykk Tab for å se skiplink-en. Den vises bare ved fokus.
-      </p>
+      <p style={{ marginTop: '2rem' }}>Trykk Tab for å se skiplink-en. Den vises bare ved fokus.</p>
       <main id="main-content" style={{ marginTop: '2rem' }}>
         <h1>Hovedinnhold</h1>
         <p>Dette er hovedinnholdet på siden.</p>

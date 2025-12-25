@@ -14,7 +14,10 @@ export interface ListProps extends HTMLAttributes<HTMLUListElement | HTMLOListEl
 }
 
 export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
-  ({ variant = 'unordered', size = 'md', spacing = 'normal', className, children, ...props }, ref) => {
+  (
+    { variant = 'unordered', size = 'md', spacing = 'normal', className, children, ...props },
+    ref
+  ) => {
     const Component = variant === 'ordered' ? 'ol' : 'ul';
 
     return (
@@ -44,7 +47,11 @@ export interface ListItemProps extends LiHTMLAttributes<HTMLLIElement> {
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ icon, className, children, ...props }, ref) => (
-    <li ref={ref} className={cn('ds-list__item', icon ? 'ds-list__item--has-icon' : '', className)} {...props}>
+    <li
+      ref={ref}
+      className={cn('ds-list__item', icon ? 'ds-list__item--has-icon' : '', className)}
+      {...props}
+    >
       {icon && <span className="ds-list__icon">{icon}</span>}
       <span className="ds-list__content">{children}</span>
     </li>
@@ -62,7 +69,11 @@ export const DescriptionList = forwardRef<HTMLDListElement, DescriptionListProps
   ({ horizontal = false, className, children, ...props }, ref) => (
     <dl
       ref={ref}
-      className={cn('ds-description-list', horizontal && 'ds-description-list--horizontal', className)}
+      className={cn(
+        'ds-description-list',
+        horizontal && 'ds-description-list--horizontal',
+        className
+      )}
       {...props}
     >
       {children}

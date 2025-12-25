@@ -99,7 +99,11 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
       <AccordionItemContext.Provider value={{ id, isExpanded, toggle }}>
         <div
           ref={ref}
-          className={cn('ds-accordion__item', isExpanded && 'ds-accordion__item--expanded', className)}
+          className={cn(
+            'ds-accordion__item',
+            isExpanded && 'ds-accordion__item--expanded',
+            className
+          )}
           {...props}
         >
           {children}
@@ -131,8 +135,18 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerPr
         {...props}
       >
         <span className="ds-accordion__trigger-text">{children}</span>
-        <span className={cn('ds-accordion__icon', isExpanded && 'ds-accordion__icon--expanded')} aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <span
+          className={cn('ds-accordion__icon', isExpanded && 'ds-accordion__icon--expanded')}
+          aria-hidden="true"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M6 9l6 6 6-6" />
           </svg>
         </span>
