@@ -1,4 +1,9 @@
-import { forwardRef, type HTMLAttributes, type ThHTMLAttributes, type TdHTMLAttributes } from 'react';
+import {
+  forwardRef,
+  type HTMLAttributes,
+  type ThHTMLAttributes,
+  type TdHTMLAttributes,
+} from 'react';
 import { cn } from '../../utils/cn';
 import './Table.css';
 
@@ -12,7 +17,10 @@ export interface TableProps extends HTMLAttributes<HTMLTableElement> {
 }
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ size = 'md', variant = 'default', stickyHeader = false, className, children, ...props }, ref) => (
+  (
+    { size = 'md', variant = 'default', stickyHeader = false, className, children, ...props },
+    ref
+  ) => (
     <div className="ds-table-wrapper">
       <table
         ref={ref}
@@ -33,7 +41,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 
 Table.displayName = 'Table';
 
-export interface TableHeadProps extends HTMLAttributes<HTMLTableSectionElement> {}
+export type TableHeadProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
   ({ className, children, ...props }, ref) => (
@@ -45,7 +53,7 @@ export const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
 
 TableHead.displayName = 'TableHead';
 
-export interface TableBodyProps extends HTMLAttributes<HTMLTableSectionElement> {}
+export type TableBodyProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ className, children, ...props }, ref) => (
@@ -57,7 +65,7 @@ export const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
 
 TableBody.displayName = 'TableBody';
 
-export interface TableFootProps extends HTMLAttributes<HTMLTableSectionElement> {}
+export type TableFootProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const TableFoot = forwardRef<HTMLTableSectionElement, TableFootProps>(
   ({ className, children, ...props }, ref) => (

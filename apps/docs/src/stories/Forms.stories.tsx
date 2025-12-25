@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input, Textarea, Select, Checkbox, Radio, Switch, VStack, HStack } from '@designsystem/core';
+import { Input, Textarea, Select, Checkbox, Radio, Switch, VStack } from '@designsystem/core';
 
 export default {
   title: 'Forms/Inputs',

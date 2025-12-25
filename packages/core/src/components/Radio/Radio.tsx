@@ -12,18 +12,7 @@ export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 }
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  (
-    {
-      label,
-      description,
-      error,
-      size = 'md',
-      className,
-      id: providedId,
-      ...props
-    },
-    ref
-  ) => {
+  ({ label, description, error, size = 'md', className, id: providedId, ...props }, ref) => {
     const generatedId = useId();
     const id = providedId || generatedId;
     const descriptionId = `${id}-description`;
@@ -36,16 +25,10 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             ref={ref}
             type="radio"
             id={id}
-            className={cn(
-              'ds-radio',
-              `ds-radio--${size}`,
-              error && 'ds-radio--error'
-            )}
-            aria-invalid={!!error}
+            className={cn('ds-radio', `ds-radio--${size}`, error && 'ds-radio--error')}
             aria-describedby={
-              [description && descriptionId, error && errorId]
-                .filter(Boolean)
-                .join(' ') || undefined
+              [description && descriptionId, error && errorId].filter(Boolean).join(' ') ||
+              undefined
             }
             {...props}
           />

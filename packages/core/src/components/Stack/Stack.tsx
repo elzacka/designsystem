@@ -1,5 +1,5 @@
 import React, { forwardRef, type ElementType, type ReactNode } from 'react';
-import type { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/polymorphic';
+import type { PolymorphicComponentPropWithRef } from '../../utils/polymorphic';
 import { cn } from '../../utils/cn';
 import './Stack.css';
 

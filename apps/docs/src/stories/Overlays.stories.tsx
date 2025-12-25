@@ -4,7 +4,6 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Toast,
   ToastProvider,
   useToast,
   Tooltip,
@@ -34,9 +33,7 @@ const ModalExample = () => {
     <>
       <Button onClick={() => setIsOpen(true)}>Åpne modal</Button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <ModalHeader>
-          Bekreft handling
-        </ModalHeader>
+        <ModalHeader>Bekreft handling</ModalHeader>
         <ModalBody>
           <p>Er du sikker på at du vil fortsette med denne handlingen?</p>
         </ModalBody>
@@ -76,9 +73,7 @@ const ModalSizesExample = () => {
         ))}
       </div>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size={size}>
-        <ModalHeader>
-          Modal størrelse: {size}
-        </ModalHeader>
+        <ModalHeader>Modal størrelse: {size}</ModalHeader>
         <ModalBody>
           <p>Dette er en modal med størrelse &quot;{size}&quot;.</p>
         </ModalBody>
@@ -100,16 +95,30 @@ const ToastExample = () => {
   const { addToast } = useToast();
   return (
     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-      <Button onClick={() => addToast({ title: 'Suksess!', message: 'Handlingen ble fullført.', variant: 'success' })}>
+      <Button
+        onClick={() =>
+          addToast({ title: 'Suksess!', message: 'Handlingen ble fullført.', variant: 'success' })
+        }
+      >
         Suksess
       </Button>
-      <Button onClick={() => addToast({ title: 'Advarsel', message: 'Noe kan være galt.', variant: 'warning' })}>
+      <Button
+        onClick={() =>
+          addToast({ title: 'Advarsel', message: 'Noe kan være galt.', variant: 'warning' })
+        }
+      >
         Advarsel
       </Button>
-      <Button onClick={() => addToast({ title: 'Feil', message: 'Noe gikk galt.', variant: 'error' })}>
+      <Button
+        onClick={() => addToast({ title: 'Feil', message: 'Noe gikk galt.', variant: 'error' })}
+      >
         Feil
       </Button>
-      <Button onClick={() => addToast({ title: 'Info', message: 'Her er litt informasjon.', variant: 'info' })}>
+      <Button
+        onClick={() =>
+          addToast({ title: 'Info', message: 'Her er litt informasjon.', variant: 'info' })
+        }
+      >
         Info
       </Button>
     </div>
@@ -126,12 +135,23 @@ export const ToastDefault: StoryObj = {
 };
 
 const ToastPositionsExample = () => {
-  const [position, setPosition] = useState<'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center'>('top-right');
+  const [position, setPosition] = useState<
+    'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center'
+  >('top-right');
   return (
     <ToastProvider position={position}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          {(['top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'] as const).map((pos) => (
+          {(
+            [
+              'top-right',
+              'top-left',
+              'bottom-right',
+              'bottom-left',
+              'top-center',
+              'bottom-center',
+            ] as const
+          ).map((pos) => (
             <Button
               key={pos}
               variant={position === pos ? 'primary' : 'secondary'}
@@ -242,7 +262,14 @@ export const PopoverDefault: StoryObj = {
 export const PopoverPositions: StoryObj = {
   name: 'Popover - Positions',
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4rem', padding: '6rem' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gap: '4rem',
+        padding: '6rem',
+      }}
+    >
       <Popover position="top">
         <PopoverTrigger>Topp</PopoverTrigger>
         <PopoverContent>

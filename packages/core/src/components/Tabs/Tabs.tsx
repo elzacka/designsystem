@@ -92,6 +92,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       <div
         ref={ref}
         role="tablist"
+        tabIndex={0}
         className={cn('ds-tabs__list', className)}
         onKeyDown={handleKeyDown}
         {...props}

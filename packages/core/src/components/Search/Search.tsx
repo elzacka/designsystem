@@ -13,7 +13,10 @@ import './Search.css';
 
 export type SearchSize = 'sm' | 'md' | 'lg';
 
-export interface SearchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
+export interface SearchProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'onChange'
+> {
   size?: SearchSize;
   onSearch?: (value: string) => void;
   onChange?: (value: string) => void;
@@ -127,7 +130,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         <div className="ds-search__input-wrapper">
           <span className="ds-search__icon" aria-hidden="true">
             {leftIcon || (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <path d="M21 21l-4.35-4.35" />
               </svg>
@@ -140,10 +150,13 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             value={currentValue}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            onFocus={() => currentValue.length > 0 && suggestions.length > 0 && setShowSuggestions(true)}
+            onFocus={() =>
+              currentValue.length > 0 && suggestions.length > 0 && setShowSuggestions(true)
+            }
             placeholder={placeholder}
             role="combobox"
             aria-expanded={showSuggestions}
+            aria-controls="search-suggestions"
             aria-haspopup="listbox"
             aria-autocomplete="list"
             {...props}
@@ -151,7 +164,16 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           {loading && (
             <span className="ds-search__loader" aria-label="Laster...">
               <svg className="ds-search__loader-icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" fill="none" strokeDasharray="32" strokeLinecap="round" />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeDasharray="32"
+                  strokeLinecap="round"
+                />
               </svg>
             </span>
           )}
@@ -162,7 +184,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               onClick={handleClear}
               aria-label="Tøm søk"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
@@ -171,6 +200,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         <AnimatePresence>
           {showSuggestions && suggestions.length > 0 && (
             <motion.ul
+              id="search-suggestions"
               role="listbox"
               className="ds-search__suggestions"
               initial={{ opacity: 0, y: -8 }}
@@ -188,6 +218,11 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                     index === selectedIndex && 'ds-search__suggestion--selected'
                   )}
                   onClick={() => handleSuggestionSelect(suggestion)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleSuggestionSelect(suggestion);
+                    }
+                  }}
                 >
                   {suggestion}
                 </li>

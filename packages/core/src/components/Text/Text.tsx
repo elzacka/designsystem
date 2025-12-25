@@ -1,5 +1,5 @@
 import React, { forwardRef, type ElementType, type ReactNode } from 'react';
-import type { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/polymorphic';
+import type { PolymorphicComponentPropWithRef } from '../../utils/polymorphic';
 import { cn } from '../../utils/cn';
 import './Text.css';
 
@@ -34,9 +34,7 @@ type TextProps<C extends ElementType> = PolymorphicComponentPropWithRef<
   }
 >;
 
-type TextComponent = <C extends ElementType = 'p'>(
-  props: TextProps<C>
-) => ReactNode;
+type TextComponent = <C extends ElementType = 'p'>(props: TextProps<C>) => ReactNode;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Text: TextComponent = forwardRef<any, any>(
@@ -115,18 +113,20 @@ function getHeadingVariant(level: number): TextVariant {
   return map[level] || 'heading-md';
 }
 
-export const Paragraph = forwardRef<HTMLParagraphElement, Omit<TextProps<'p'>, 'variant'> & { size?: 'lg' | 'md' | 'sm' }>(
-  ({ size = 'md', ...props }, ref) => (
-    <Text ref={ref} as="p" variant={`body-${size}` as TextVariant} {...props} />
-  )
-);
+export const Paragraph = forwardRef<
+  HTMLParagraphElement,
+  Omit<TextProps<'p'>, 'variant'> & { size?: 'lg' | 'md' | 'sm' }
+>(({ size = 'md', ...props }, ref) => (
+  <Text ref={ref} as="p" variant={`body-${size}` as TextVariant} {...props} />
+));
 
 Paragraph.displayName = 'Paragraph';
 
-export const Label = forwardRef<HTMLLabelElement, Omit<TextProps<'label'>, 'variant'> & { size?: 'lg' | 'md' | 'sm' }>(
-  ({ size = 'md', ...props }, ref) => (
-    <Text ref={ref} as="label" variant={`label-${size}` as TextVariant} {...props} />
-  )
-);
+export const Label = forwardRef<
+  HTMLLabelElement,
+  Omit<TextProps<'label'>, 'variant'> & { size?: 'lg' | 'md' | 'sm' }
+>(({ size = 'md', ...props }, ref) => (
+  <Text ref={ref} as="label" variant={`label-${size}` as TextVariant} {...props} />
+));
 
 Label.displayName = 'Label';

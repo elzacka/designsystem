@@ -28,7 +28,6 @@ const meta = {
 } satisfies Meta<typeof Sheet>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const SheetDemo = ({
   position = 'bottom',
@@ -45,9 +44,7 @@ const SheetDemo = ({
 
   return (
     <div style={{ padding: '2rem' }}>
-      <Button onClick={() => setOpen(true)}>
-        Open {position} sheet
-      </Button>
+      <Button onClick={() => setOpen(true)}>Open {position} sheet</Button>
       <Sheet
         open={open}
         onOpenChange={setOpen}
@@ -56,9 +53,7 @@ const SheetDemo = ({
         dismissible={dismissible}
         modal={modal}
       >
-        <h2 style={{ margin: '0 0 1rem', fontSize: '1.25rem', fontWeight: 600 }}>
-          Sheet Title
-        </h2>
+        <h2 style={{ margin: '0 0 1rem', fontSize: '1.25rem', fontWeight: 600 }}>Sheet Title</h2>
         <p style={{ margin: '0 0 1rem', color: 'var(--color-gray-600)' }}>
           This is a {position} sheet. You can drag to dismiss it or click the backdrop.
         </p>
@@ -113,9 +108,7 @@ export const MobileNavigation: StoryObj = {
         <Button onClick={() => setOpen(true)}>Open Navigation</Button>
         <Sheet open={open} onOpenChange={setOpen} position="left" size="sm">
           <nav>
-            <h2 style={{ margin: '0 0 1.5rem', fontSize: '1.25rem', fontWeight: 600 }}>
-              Meny
-            </h2>
+            <h2 style={{ margin: '0 0 1.5rem', fontSize: '1.25rem', fontWeight: 600 }}>Meny</h2>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {menuItems.map((item) => (
                 <li key={item}>

@@ -4,7 +4,6 @@ import {
   useCallback,
   useContext,
   useState,
-  type HTMLAttributes,
   type ReactNode,
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -12,7 +11,13 @@ import { cn } from '../../utils/cn';
 import './Toast.css';
 
 export type ToastVariant = 'default' | 'success' | 'warning' | 'error' | 'info';
-export type ToastPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
+export type ToastPosition =
+  | 'top-right'
+  | 'top-left'
+  | 'bottom-right'
+  | 'bottom-left'
+  | 'top-center'
+  | 'bottom-center';
 
 export interface ToastData {
   id: string;
@@ -121,7 +126,12 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             </button>
           )}
           {onDismiss && (
-            <button type="button" className="ds-toast__dismiss" onClick={onDismiss} aria-label="Lukk">
+            <button
+              type="button"
+              className="ds-toast__dismiss"
+              onClick={onDismiss}
+              aria-label="Lukk"
+            >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
               </svg>

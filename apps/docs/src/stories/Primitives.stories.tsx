@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Text, Heading, Paragraph, Label, Spinner, Link, Divider, VStack, HStack } from '@designsystem/core';
+import {
+  Text,
+  Heading,
+  Paragraph,
+  Spinner,
+  Link,
+  Divider,
+  VStack,
+  HStack,
+} from '@designsystem/core';
 
 export default {
   title: 'Primitives/Typography',
@@ -53,9 +62,15 @@ export const LinkVariants: StoryObj = {
   render: () => (
     <VStack gap={3} align="start">
       <Link href="#">Default Link</Link>
-      <Link href="#" variant="subtle">Subtle Link</Link>
-      <Link href="#" variant="neutral">Neutral Link</Link>
-      <Link href="https://example.com" external>External Link</Link>
+      <Link href="#" variant="subtle">
+        Subtle Link
+      </Link>
+      <Link href="#" variant="neutral">
+        Neutral Link
+      </Link>
+      <Link href="https://example.com" external>
+        External Link
+      </Link>
     </VStack>
   ),
 };
