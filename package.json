@@ -1,0 +1,28 @@
+{
+  "name": "designsystem",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.26.2",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @designsystem/docs dev",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "storybook": "pnpm --filter @designsystem/docs storybook",
+    "build-storybook": "pnpm --filter @designsystem/docs build-storybook"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "prettier": "^3.5.1",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.32.1"
+  }
+}

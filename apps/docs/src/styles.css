@@ -1,0 +1,15 @@
+@import '@designsystem/core/src/components/Button/Button.css';
+@import '@designsystem/core/src/components/Sheet/Sheet.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+}

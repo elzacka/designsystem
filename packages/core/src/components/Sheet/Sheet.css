@@ -1,0 +1,179 @@
+.ds-sheet-container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-sheet);
+  pointer-events: none;
+}
+
+.ds-sheet-container--modal {
+  pointer-events: auto;
+}
+
+.ds-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.ds-sheet {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-xl);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+/* Position: Bottom */
+.ds-sheet--bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  max-height: 90vh;
+  max-height: 90dvh;
+}
+
+/* Position: Right */
+.ds-sheet--right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: var(--radius-xl);
+  border-bottom-left-radius: var(--radius-xl);
+}
+
+/* Position: Left */
+.ds-sheet--left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-top-right-radius: var(--radius-xl);
+  border-bottom-right-radius: var(--radius-xl);
+}
+
+/* Sizes - Bottom */
+.ds-sheet--bottom.ds-sheet--sm {
+  height: auto;
+  max-height: 40vh;
+  max-height: 40dvh;
+}
+
+.ds-sheet--bottom.ds-sheet--md {
+  height: auto;
+  max-height: 60vh;
+  max-height: 60dvh;
+}
+
+.ds-sheet--bottom.ds-sheet--lg {
+  height: auto;
+  max-height: 80vh;
+  max-height: 80dvh;
+}
+
+.ds-sheet--bottom.ds-sheet--full {
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+}
+
+/* Sizes - Side sheets */
+.ds-sheet--right.ds-sheet--sm,
+.ds-sheet--left.ds-sheet--sm {
+  width: 280px;
+}
+
+.ds-sheet--right.ds-sheet--md,
+.ds-sheet--left.ds-sheet--md {
+  width: 400px;
+}
+
+.ds-sheet--right.ds-sheet--lg,
+.ds-sheet--left.ds-sheet--lg {
+  width: 600px;
+}
+
+.ds-sheet--right.ds-sheet--full,
+.ds-sheet--left.ds-sheet--full {
+  width: 100vw;
+  width: 100dvw;
+  border-radius: 0;
+}
+
+/* Handle */
+.ds-sheet__handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) 0;
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.ds-sheet__handle:active {
+  cursor: grabbing;
+}
+
+.ds-sheet__handle-bar {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-300);
+}
+
+/* Content */
+.ds-sheet__content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-4);
+}
+
+/* Responsive: Convert bottom sheet to side sheet on larger screens */
+@media (min-width: 768px) {
+  .ds-sheet--bottom.ds-sheet--responsive {
+    left: auto;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+    border-top-left-radius: var(--radius-xl);
+    border-bottom-left-radius: var(--radius-xl);
+    max-height: none;
+    width: 400px;
+  }
+
+  .ds-sheet--bottom.ds-sheet--responsive .ds-sheet__handle {
+    display: none;
+  }
+}
+
+/* Safe area insets for iOS */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .ds-sheet--bottom .ds-sheet__content {
+    padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .ds-sheet {
+    background-color: var(--color-gray-900);
+  }
+
+  .ds-sheet__handle-bar {
+    background-color: var(--color-gray-600);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ds-sheet {
+    transition: none;
+  }
+}

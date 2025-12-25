@@ -1,0 +1,42 @@
+{
+  "name": "@designsystem/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc && vite build"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@designsystem/tokens": "workspace:*",
+    "motion": "^12.23.26"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.7",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "typescript": "^5.9.0",
+    "vite": "^7.3.0",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
