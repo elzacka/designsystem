@@ -3,6 +3,7 @@ import {
   useState,
   useRef,
   useEffect,
+  useId,
   createContext,
   useContext,
   type HTMLAttributes,
@@ -40,13 +41,12 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
   align?: PopoverAlign;
 }
 
-let popoverIdCounter = 0;
-
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   ({ children, position = 'bottom', align = 'center', className, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
     const popoverRef = useRef<HTMLDivElement>(null);
-    const idRef = useRef(`popover-${++popoverIdCounter}`);
+    const generatedId = useId();
+    const idRef = useRef(`popover${generatedId}`);
 
     const toggle = () => setIsOpen((prev) => !prev);
     const close = () => setIsOpen(false);

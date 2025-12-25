@@ -29,7 +29,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
         aria-label={name}
       >
         {src ? (
-          <img src={src} alt={name || ''} className="ds-avatar__image" {...props} />
+          <img src={src} alt={name || 'Brukeravatar'} className="ds-avatar__image" {...props} />
         ) : (
           <span className="ds-avatar__fallback">{initials}</span>
         )}

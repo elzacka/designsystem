@@ -13,7 +13,7 @@ export const SearchDefault: StoryObj = {
   name: 'Search - Default',
   render: () => (
     <div style={{ maxWidth: '400px' }}>
-      <Search placeholder="Søk etter noe..." onSearch={(value) => console.log('Søk:', value)} />
+      <Search placeholder="Søk etter noe..." onSearch={() => {}} />
     </div>
   ),
 };
@@ -54,7 +54,6 @@ const SearchWithSuggestionsExample = () => {
         suggestions={filteredSuggestions}
         onSuggestionSelect={(suggestion) => {
           setValue(suggestion);
-          console.log('Valgt:', suggestion);
         }}
         placeholder="Søk etter rammeverk..."
       />
@@ -114,20 +113,12 @@ export const CopyButtonSizes: StoryObj = {
 // FileUpload Stories
 export const FileUploadDefault: StoryObj = {
   name: 'FileUpload - Default',
-  render: () => (
-    <FileUpload
-      onChange={(files) => console.log('Filer valgt:', files)}
-      accept="image/*"
-      maxSize={5 * 1024 * 1024}
-    />
-  ),
+  render: () => <FileUpload onChange={() => {}} accept="image/*" maxSize={5 * 1024 * 1024} />,
 };
 
 export const FileUploadMultiple: StoryObj = {
   name: 'FileUpload - Multiple',
-  render: () => (
-    <FileUpload multiple maxFiles={5} onChange={(files) => console.log('Filer valgt:', files)} />
-  ),
+  render: () => <FileUpload multiple maxFiles={5} onChange={() => {}} />,
 };
 
 const FileUploadWithFilesExample = () => {
@@ -164,12 +155,10 @@ export const FileUploadWithFiles: StoryObj = {
 
 export const FileUploadWithError: StoryObj = {
   name: 'FileUpload - With Error',
-  render: () => (
-    <FileUpload error="Filen er for stor. Maks 5 MB." onChange={(files) => console.log(files)} />
-  ),
+  render: () => <FileUpload error="Filen er for stor. Maks 5 MB." onChange={() => {}} />,
 };
 
 export const FileUploadDisabled: StoryObj = {
   name: 'FileUpload - Disabled',
-  render: () => <FileUpload disabled onChange={(files) => console.log(files)} />,
+  render: () => <FileUpload disabled onChange={() => {}} />,
 };

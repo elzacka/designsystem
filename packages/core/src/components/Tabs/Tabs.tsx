@@ -89,10 +89,10 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     };
 
     return (
+      // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- Tab buttons are focusable, not the tablist container (WAI-ARIA pattern)
       <div
         ref={ref}
         role="tablist"
-        tabIndex={0}
         className={cn('ds-tabs__list', className)}
         onKeyDown={handleKeyDown}
         {...props}
