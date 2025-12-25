@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Sheet, Button } from '@designsystem/core';
 
 const meta = {
@@ -75,35 +75,35 @@ const SheetDemo = ({
   );
 };
 
-export const Bottom: Story = {
+export const Bottom: StoryObj = {
   render: () => <SheetDemo position="bottom" />,
 };
 
-export const Right: Story = {
+export const Right: StoryObj = {
   render: () => <SheetDemo position="right" />,
 };
 
-export const Left: Story = {
+export const Left: StoryObj = {
   render: () => <SheetDemo position="left" />,
 };
 
-export const Small: Story = {
+export const Small: StoryObj = {
   render: () => <SheetDemo size="sm" />,
 };
 
-export const Large: Story = {
+export const Large: StoryObj = {
   render: () => <SheetDemo size="lg" />,
 };
 
-export const Full: Story = {
+export const Full: StoryObj = {
   render: () => <SheetDemo size="full" />,
 };
 
-export const NonDismissible: Story = {
+export const NonDismissible: StoryObj = {
   render: () => <SheetDemo dismissible={false} />,
 };
 
-export const MobileNavigation: Story = {
+export const MobileNavigation: StoryObj = {
   render: () => {
     const [open, setOpen] = useState(false);
     const menuItems = ['Hjem', 'Produkter', 'Tjenester', 'Om oss', 'Kontakt'];
@@ -145,7 +145,7 @@ export const MobileNavigation: Story = {
   },
 };
 
-export const ActionSheet: Story = {
+export const ActionSheet: StoryObj = {
   render: () => {
     const [open, setOpen] = useState(false);
     const actions = [

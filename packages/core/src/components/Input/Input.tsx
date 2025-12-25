@@ -4,7 +4,7 @@ import './Input.css';
 
 export type InputSize = 'sm' | 'md' | 'lg';
 
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   label?: string;
   description?: string;
   error?: string;
@@ -58,9 +58,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             'ds-input',
             `ds-input--${size}`,
-            error && 'ds-input--error',
-            props.disabled && 'ds-input--disabled',
-            (prefix || suffix) && 'ds-input--has-addon'
+            error ? 'ds-input--error' : '',
+            props.disabled ? 'ds-input--disabled' : '',
+            (prefix || suffix) ? 'ds-input--has-addon' : ''
           )}
         >
           {prefix && <span className="ds-input__prefix">{prefix}</span>}

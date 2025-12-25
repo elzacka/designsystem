@@ -1,0 +1,137 @@
+.ds-copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: inherit;
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ds-copy-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ds-copy-button:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.ds-copy-button--sm {
+  height: 1.75rem;
+  padding: 0 var(--space-2);
+  font-size: var(--text-xs);
+}
+
+.ds-copy-button--sm .ds-copy-button__icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.ds-copy-button--md {
+  height: 2rem;
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.ds-copy-button--md .ds-copy-button__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ds-copy-button--lg {
+  height: 2.5rem;
+  padding: 0 var(--space-4);
+  font-size: var(--text-base);
+}
+
+.ds-copy-button--lg .ds-copy-button__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Variants */
+.ds-copy-button--primary {
+  color: var(--color-white);
+  background-color: var(--color-primary-600);
+  border: none;
+}
+
+.ds-copy-button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-700);
+}
+
+.ds-copy-button--secondary {
+  color: var(--color-gray-700);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+}
+
+.ds-copy-button--secondary:hover:not(:disabled) {
+  background-color: var(--color-gray-50);
+  border-color: var(--color-gray-400);
+}
+
+.ds-copy-button--ghost {
+  color: var(--color-gray-600);
+  background-color: transparent;
+  border: none;
+}
+
+.ds-copy-button--ghost:hover:not(:disabled) {
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-100);
+}
+
+/* Copied state */
+.ds-copy-button--copied {
+  color: var(--color-success);
+}
+
+.ds-copy-button--primary.ds-copy-button--copied {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.ds-copy-button--secondary.ds-copy-button--copied {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+/* Icon */
+.ds-copy-button__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Label */
+.ds-copy-button__label {
+  white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-copy-button--secondary {
+    color: var(--color-gray-200);
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+  }
+
+  .ds-copy-button--secondary:hover:not(:disabled) {
+    background-color: var(--color-gray-700);
+    border-color: var(--color-gray-500);
+  }
+
+  .ds-copy-button--ghost {
+    color: var(--color-gray-400);
+  }
+
+  .ds-copy-button--ghost:hover:not(:disabled) {
+    color: var(--color-gray-100);
+    background-color: var(--color-gray-800);
+  }
+}

@@ -85,7 +85,7 @@ export const Disabled: Story = {
   },
 };
 
-export const AllVariants: Story = {
+export const AllVariants: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       <Button variant="primary">Primary</Button>
@@ -96,7 +96,7 @@ export const AllVariants: Story = {
   ),
 };
 
-export const AllSizes: Story = {
+export const AllSizes: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
       <Button size="sm">Small</Button>

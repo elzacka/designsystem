@@ -1,0 +1,21 @@
+.ds-skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-white);
+  background-color: var(--color-primary-600);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: top var(--duration-fast) var(--ease-default);
+}
+
+.ds-skip-link:focus {
+  top: var(--space-4);
+  outline: 2px solid var(--color-primary-300);
+  outline-offset: 2px;
+}

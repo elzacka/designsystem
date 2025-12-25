@@ -30,5 +30,28 @@ export * from './components/Avatar';
 export * from './components/Skeleton';
 export * from './components/ProgressBar';
 
+// Navigation
+export * from './components/Tabs';
+export * from './components/Breadcrumbs';
+export * from './components/Pagination';
+export * from './components/SkipLink';
+
+// Overlays
+export * from './components/Modal';
+export * from './components/Toast';
+export * from './components/Tooltip';
+export * from './components/Dropdown';
+export * from './components/Popover';
+
+// Data
+export * from './components/Table';
+export * from './components/List';
+export * from './components/Accordion';
+
+// Advanced
+export * from './components/Search';
+export * from './components/CopyButton';
+export * from './components/FileUpload';
+
 // Utilities
 export { cn } from './utils/cn';

@@ -3,7 +3,6 @@ import {
   useEffect,
   useRef,
   type ReactNode,
-  type HTMLAttributes,
 } from 'react';
 import { motion, AnimatePresence, useDragControls, type PanInfo } from 'motion/react';
 import { cn } from '../../utils/cn';
@@ -12,7 +11,7 @@ import './Sheet.css';
 export type SheetPosition = 'bottom' | 'right' | 'left';
 export type SheetSize = 'sm' | 'md' | 'lg' | 'full';
 
-export interface SheetProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface SheetProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   position?: SheetPosition;
@@ -21,6 +20,7 @@ export interface SheetProps extends Omit<HTMLAttributes<HTMLDivElement>, 'childr
   dismissible?: boolean;
   snapPoints?: number[];
   modal?: boolean;
+  className?: string;
 }
 
 const DRAG_CLOSE_THRESHOLD = 100;
@@ -34,10 +34,8 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
       size = 'md',
       children,
       dismissible = true,
-      snapPoints,
       modal = true,
       className,
-      ...props
     },
     ref
   ) => {
@@ -143,7 +141,6 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
               dragConstraints={getDragConstraints()}
               dragElastic={0.2}
               onDragEnd={handleDragEnd}
-              {...props}
             >
               {dismissible && position === 'bottom' && (
                 <div

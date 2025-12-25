@@ -1,0 +1,136 @@
+.ds-list {
+  margin: 0;
+  padding: 0;
+  color: var(--color-gray-900);
+}
+
+/* Sizes */
+.ds-list--sm {
+  font-size: var(--text-sm);
+}
+
+.ds-list--md {
+  font-size: var(--text-base);
+}
+
+.ds-list--lg {
+  font-size: var(--text-lg);
+}
+
+/* Spacing */
+.ds-list--compact .ds-list__item {
+  margin-bottom: var(--space-1);
+}
+
+.ds-list--normal .ds-list__item {
+  margin-bottom: var(--space-2);
+}
+
+.ds-list--loose .ds-list__item {
+  margin-bottom: var(--space-3);
+}
+
+.ds-list .ds-list__item:last-child {
+  margin-bottom: 0;
+}
+
+/* Variants */
+.ds-list--unordered {
+  list-style-type: disc;
+  padding-left: var(--space-5);
+}
+
+.ds-list--ordered {
+  list-style-type: decimal;
+  padding-left: var(--space-5);
+}
+
+.ds-list--none {
+  list-style-type: none;
+}
+
+/* List item */
+.ds-list__item {
+  display: list-item;
+}
+
+.ds-list__item--has-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  list-style-type: none;
+}
+
+.ds-list--unordered .ds-list__item--has-icon,
+.ds-list--ordered .ds-list__item--has-icon {
+  margin-left: calc(var(--space-5) * -1);
+}
+
+.ds-list__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 0.125em;
+  color: var(--color-gray-500);
+}
+
+.ds-list__content {
+  flex: 1;
+}
+
+/* Nested lists */
+.ds-list .ds-list {
+  margin-top: var(--space-2);
+}
+
+.ds-list--unordered .ds-list--unordered {
+  list-style-type: circle;
+}
+
+.ds-list--unordered .ds-list--unordered .ds-list--unordered {
+  list-style-type: square;
+}
+
+/* Description list */
+.ds-description-list {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ds-description-list__term {
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
+}
+
+.ds-description-list__details {
+  margin: 0;
+  color: var(--color-gray-900);
+}
+
+.ds-description-list--horizontal {
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-4);
+}
+
+.ds-description-list--horizontal .ds-description-list__term {
+  text-align: right;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-list {
+    color: var(--color-gray-100);
+  }
+
+  .ds-list__icon {
+    color: var(--color-gray-400);
+  }
+
+  .ds-description-list__term {
+    color: var(--color-gray-300);
+  }
+
+  .ds-description-list__details {
+    color: var(--color-gray-100);
+  }
+}

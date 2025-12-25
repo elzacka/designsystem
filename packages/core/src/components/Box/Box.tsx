@@ -1,4 +1,4 @@
-import { forwardRef, type ElementType, type ReactNode } from 'react';
+import React, { forwardRef, type ElementType, type ReactNode } from 'react';
 import type { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/polymorphic';
 import { cn } from '../../utils/cn';
 import './Box.css';
@@ -28,7 +28,8 @@ type BoxProps<C extends ElementType> = PolymorphicComponentPropWithRef<
 
 type BoxComponent = <C extends ElementType = 'div'>(props: BoxProps<C>) => ReactNode;
 
-export const Box: BoxComponent = forwardRef(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Box: BoxComponent = forwardRef<any, any>(
   <C extends ElementType = 'div'>(
     {
       as,
@@ -48,7 +49,7 @@ export const Box: BoxComponent = forwardRef(
       children,
       ...props
     }: BoxProps<C>,
-    ref: PolymorphicRef<C>
+    ref: React.Ref<Element>
   ) => {
     const Component = as || 'div';
 

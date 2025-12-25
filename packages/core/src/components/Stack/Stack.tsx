@@ -1,4 +1,4 @@
-import { forwardRef, type ElementType, type ReactNode } from 'react';
+import React, { forwardRef, type ElementType, type ReactNode } from 'react';
 import type { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/polymorphic';
 import { cn } from '../../utils/cn';
 import './Stack.css';
@@ -20,7 +20,8 @@ type VStackProps<C extends ElementType> = PolymorphicComponentPropWithRef<C, Bas
 
 type StackComponent = <C extends ElementType = 'div'>(props: HStackProps<C>) => ReactNode;
 
-export const HStack: StackComponent = forwardRef(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const HStack: StackComponent = forwardRef<any, any>(
   <C extends ElementType = 'div'>(
     {
       as,
@@ -33,7 +34,7 @@ export const HStack: StackComponent = forwardRef(
       children,
       ...props
     }: HStackProps<C>,
-    ref: PolymorphicRef<C>
+    ref: React.Ref<Element>
   ) => {
     const Component = as || 'div';
 
@@ -58,7 +59,8 @@ export const HStack: StackComponent = forwardRef(
 
 (HStack as { displayName?: string }).displayName = 'HStack';
 
-export const VStack: StackComponent = forwardRef(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const VStack: StackComponent = forwardRef<any, any>(
   <C extends ElementType = 'div'>(
     {
       as,
@@ -71,7 +73,7 @@ export const VStack: StackComponent = forwardRef(
       children,
       ...props
     }: VStackProps<C>,
-    ref: PolymorphicRef<C>
+    ref: React.Ref<Element>
   ) => {
     const Component = as || 'div';
 

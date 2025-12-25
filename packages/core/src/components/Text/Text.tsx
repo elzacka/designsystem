@@ -1,4 +1,4 @@
-import { forwardRef, type ElementType, type ReactNode } from 'react';
+import React, { forwardRef, type ElementType, type ReactNode } from 'react';
 import type { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/polymorphic';
 import { cn } from '../../utils/cn';
 import './Text.css';
@@ -30,7 +30,7 @@ type TextProps<C extends ElementType> = PolymorphicComponentPropWithRef<
     weight?: TextWeight;
     align?: TextAlign;
     truncate?: boolean;
-    children: ReactNode;
+    children?: ReactNode;
   }
 >;
 
@@ -38,7 +38,8 @@ type TextComponent = <C extends ElementType = 'p'>(
   props: TextProps<C>
 ) => ReactNode;
 
-export const Text: TextComponent = forwardRef(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Text: TextComponent = forwardRef<any, any>(
   <C extends ElementType = 'p'>(
     {
       as,
@@ -50,7 +51,7 @@ export const Text: TextComponent = forwardRef(
       children,
       ...props
     }: TextProps<C>,
-    ref: PolymorphicRef<C>
+    ref: React.Ref<Element>
   ) => {
     const Component = as || getDefaultElement(variant);
 
