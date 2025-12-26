@@ -12,7 +12,12 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@designsystem/core": ["packages/core/src/index.ts"],
+      "@designsystem/tokens": ["packages/tokens/src/index.ts"]
+    }
   },
   "include": [
     "packages/*/src/**/*.ts",

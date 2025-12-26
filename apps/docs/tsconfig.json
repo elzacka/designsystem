@@ -1,22 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "jsx": "react-jsx",
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "paths": {
-      "@designsystem/core": ["../../packages/core/src"],
-      "@designsystem/tokens": ["../../packages/tokens/src"]
-    },
-    "baseUrl": "."
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false
   },
   "include": ["src", ".storybook"],
-  "exclude": ["node_modules"],
-  "references": [{ "path": "../../packages/tokens" }, { "path": "../../packages/core" }]
+  "exclude": ["node_modules"]
 }
