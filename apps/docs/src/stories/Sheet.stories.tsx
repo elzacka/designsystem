@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Sheet, Button } from '@designsystem/core';
 
 const meta = {
-  title: 'Components/Sheet',
+  title: 'Komponenter/Overlays/Sheet',
   component: Sheet,
   parameters: {
     layout: 'fullscreen',

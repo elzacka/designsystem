@@ -20,7 +20,7 @@ import {
 import { useState } from 'react';
 
 const meta: Meta = {
-  title: 'Components/Data',
+  title: 'Komponenter/Data',
 };
 
 export default meta;

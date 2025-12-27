@@ -21,7 +21,7 @@ import {
 import { useState } from 'react';
 
 const meta: Meta = {
-  title: 'Components/Overlays',
+  title: 'Komponenter/Overlays',
 };
 
 export default meta;

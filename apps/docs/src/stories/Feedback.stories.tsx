@@ -11,7 +11,7 @@ import {
 } from '@designsystem/core';
 
 export default {
-  title: 'Feedback/Status',
+  title: 'Komponenter/Tilbakemelding/Status',
 } satisfies Meta;
 
 export const AlertVariants: StoryObj = {

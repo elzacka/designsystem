@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Box, HStack, VStack, Grid, GridItem, Text } from '@designsystem/core';
 
 export default {
-  title: 'Layout/Containers',
+  title: 'Komponenter/Layout/Containers',
 } satisfies Meta;
 
 export const BoxVariants: StoryObj = {

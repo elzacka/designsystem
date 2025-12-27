@@ -11,7 +11,7 @@ import {
 } from '@designsystem/core';
 
 export default {
-  title: 'Primitives/Typography',
+  title: 'Komponenter/Primitiver/Typografi',
 } satisfies Meta;
 
 export const TextVariants: StoryObj = {

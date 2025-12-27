@@ -3,7 +3,7 @@ import { Search, CopyButton, FileUpload, type FileUploadFile } from '@designsyst
 import { useState } from 'react';
 
 const meta: Meta = {
-  title: 'Components/Advanced',
+  title: 'Komponenter/Avansert',
 };
 
 export default meta;

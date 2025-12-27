@@ -12,7 +12,7 @@ import {
 import { useState } from 'react';
 
 const meta: Meta = {
-  title: 'Components/Navigation',
+  title: 'Komponenter/Navigasjon',
 };
 
 export default meta;
