@@ -4,7 +4,15 @@ import '@designsystem/tokens/css';
 import '../src/styles.css';
 
 const preview: Preview = {
+  initialGlobals: {
+    backgrounds: { value: undefined },
+  },
   parameters: {
+    options: {
+      storySort: {
+        order: ['Om designsystemet', '*'],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
