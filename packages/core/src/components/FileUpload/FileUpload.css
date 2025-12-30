@@ -84,7 +84,8 @@
 }
 
 .ds-file-upload__label-primary {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-gray-700);
 }
@@ -147,7 +148,8 @@
 }
 
 .ds-file-upload__file-name {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-gray-900);
   white-space: nowrap;

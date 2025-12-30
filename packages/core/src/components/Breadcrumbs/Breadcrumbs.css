@@ -15,7 +15,8 @@
 }
 
 .ds-breadcrumbs__link {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   color: var(--color-gray-600);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-default);

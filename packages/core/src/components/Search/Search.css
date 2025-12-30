@@ -41,7 +41,7 @@
 }
 
 .ds-search__input::placeholder {
-  color: var(--color-gray-400);
+  color: var(--color-gray-500);
 }
 
 /* Remove default search cancel button */

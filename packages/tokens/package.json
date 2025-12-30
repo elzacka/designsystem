@@ -7,15 +7,23 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "style": "./dist/index.css"
     },
-    "./css": "./dist/tokens.css"
+    "./css": "./dist/index.css",
+    "./primitives": "./dist/primitives.css",
+    "./themes/base": "./dist/themes/base.css",
+    "./themes/accents/teal": "./dist/themes/accents/teal.css",
+    "./themes/accents/forest": "./dist/themes/accents/forest.css",
+    "./themes/accents/earth": "./dist/themes/accents/earth.css",
+    "./tokens": "./dist/tokens.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && cp src/tokens.css dist/tokens.css"
+    "build": "tsc && npm run copy-css",
+    "copy-css": "mkdir -p dist/themes/accents && cp src/index.css dist/index.css && cp src/primitives.css dist/primitives.css && cp src/tokens.css dist/tokens.css && cp src/themes/base.css dist/themes/base.css && cp src/themes/accents/teal.css dist/themes/accents/teal.css && cp src/themes/accents/forest.css dist/themes/accents/forest.css && cp src/themes/accents/earth.css dist/themes/accents/earth.css"
   },
   "devDependencies": {
     "typescript": "^5.9.0"

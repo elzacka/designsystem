@@ -110,7 +110,8 @@
 }
 
 .ds-radio__label {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   color: var(--color-gray-700);
   cursor: pointer;
   user-select: none;

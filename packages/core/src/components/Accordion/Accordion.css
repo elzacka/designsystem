@@ -9,7 +9,7 @@
 /* Sizes */
 .ds-accordion--sm .ds-accordion__trigger {
   padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 .ds-accordion--sm .ds-accordion__content-inner {
@@ -18,7 +18,7 @@
 
 .ds-accordion--md .ds-accordion__trigger {
   padding: var(--space-3) var(--space-4);
-  font-size: var(--text-base);
+  font-size: var(--text-mono-base);
 }
 
 .ds-accordion--md .ds-accordion__content-inner {
@@ -27,7 +27,7 @@
 
 .ds-accordion--lg .ds-accordion__trigger {
   padding: var(--space-4) var(--space-5);
-  font-size: var(--text-lg);
+  font-size: var(--text-mono-lg);
 }
 
 .ds-accordion--lg .ds-accordion__content-inner {
@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  font-family: var(--font-mono);
   font-weight: var(--font-medium);
   color: var(--color-gray-900);
   text-align: left;

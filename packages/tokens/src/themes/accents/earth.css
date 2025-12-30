@@ -1,0 +1,58 @@
+/**
+ * Earth Accent - Trakke
+ *
+ * Assosiasjon: Natur, sti, jord
+ * Brukes for: Trakke (turlogging PWA)
+ *
+ * @package @designsystem/tokens
+ */
+
+:root {
+  /* ========================================
+   * PRIMARY/ACCENT SCALE (Earth/Brown)
+   * ======================================== */
+
+  --color-primary-50: #f5f2ed;
+  --color-primary-100: #ebe5db;
+  --color-primary-200: #d7cbb7;
+  --color-primary-300: #c3b193;
+  --color-primary-400: #af976f;
+  --color-primary-500: #7b6d4d;
+  --color-primary-600: #62573e;
+  --color-primary-700: #4a412e;
+  --color-primary-800: #312b1f;
+  --color-primary-900: #19150f;
+  --color-primary-950: #0c0b08;
+
+  /* ========================================
+   * SEMANTIC ACCENT COLORS
+   * ======================================== */
+
+  --color-accent: #7b6d4d;
+  --color-accent-hover: #62573e;
+  --color-accent-foreground: #f4f1ea;
+  --color-ring: #7b6d4d;
+  --color-focus: #ebe5db;
+}
+
+/* ========================================
+ * DARK MODE
+ * ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: #af976f;
+    --color-accent-hover: #c3b193;
+    --color-accent-foreground: #1c1c1c;
+    --color-ring: #af976f;
+    --color-focus: #312b1f;
+  }
+}
+
+.dark {
+  --color-accent: #af976f;
+  --color-accent-hover: #c3b193;
+  --color-accent-foreground: #1c1c1c;
+  --color-ring: #af976f;
+  --color-focus: #312b1f;
+}

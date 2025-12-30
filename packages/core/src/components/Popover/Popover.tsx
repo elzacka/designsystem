@@ -2,16 +2,20 @@ import {
   forwardRef,
   useState,
   useRef,
-  useEffect,
   useId,
   createContext,
   useContext,
+  useCallback,
   type HTMLAttributes,
   type ReactNode,
   type ButtonHTMLAttributes,
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../../utils/cn';
+import { mergeRefs } from '../../utils/mergeRefs';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
+import { CloseIcon } from '../Icons';
 import './Popover.css';
 
 interface PopoverContextValue {
@@ -48,32 +52,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     const generatedId = useId();
     const idRef = useRef(`popover${generatedId}`);
 
-    const toggle = () => setIsOpen((prev) => !prev);
-    const close = () => setIsOpen(false);
+    const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
+    const close = useCallback(() => setIsOpen(false), []);
 
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
-          close();
-        }
-      };
-
-      const handleEscape = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          close();
-        }
-      };
-
-      if (isOpen) {
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('keydown', handleEscape);
-      }
-
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('keydown', handleEscape);
-      };
-    }, [isOpen]);
+    useClickOutside(popoverRef, close, isOpen);
+    useEscapeKey(close, isOpen);
 
     return (
       <PopoverContext.Provider
@@ -86,7 +69,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }}
       >
         <div
-          ref={ref || popoverRef}
+          ref={mergeRefs(popoverRef, ref)}
           className={cn(
             'ds-popover',
             `ds-popover--${position}`,
@@ -191,18 +174,7 @@ export const PopoverClose = forwardRef<HTMLButtonElement, PopoverCloseProps>(
         aria-label="Lukk"
         {...props}
       >
-        {children || (
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        )}
+        {children || <CloseIcon size={16} />}
       </button>
     );
   }

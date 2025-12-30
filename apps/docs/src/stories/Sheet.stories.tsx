@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Sheet, Button } from '@designsystem/core';
 
 const meta = {
-  title: 'Komponenter/Overlays/Sheet',
+  title: 'Komponenter/Sheet',
   component: Sheet,
   parameters: {
     layout: 'fullscreen',
@@ -70,35 +70,37 @@ const SheetDemo = ({
   );
 };
 
-export const Bottom: StoryObj = {
-  render: () => <SheetDemo position="bottom" />,
+type Story = StoryObj;
+
+export const Default: Story = {
+  render: () => <SheetDemo position="bottom" size="md" dismissible modal />,
 };
 
-export const Right: StoryObj = {
-  render: () => <SheetDemo position="right" />,
+export const Right: Story = {
+  render: () => <SheetDemo position="right" size="md" />,
 };
 
-export const Left: StoryObj = {
-  render: () => <SheetDemo position="left" />,
+export const Left: Story = {
+  render: () => <SheetDemo position="left" size="md" />,
 };
 
-export const Small: StoryObj = {
-  render: () => <SheetDemo size="sm" />,
+export const Small: Story = {
+  render: () => <SheetDemo position="bottom" size="sm" />,
 };
 
-export const Large: StoryObj = {
-  render: () => <SheetDemo size="lg" />,
+export const Large: Story = {
+  render: () => <SheetDemo position="bottom" size="lg" />,
 };
 
-export const Full: StoryObj = {
-  render: () => <SheetDemo size="full" />,
+export const Full: Story = {
+  render: () => <SheetDemo position="bottom" size="full" />,
 };
 
-export const NonDismissible: StoryObj = {
-  render: () => <SheetDemo dismissible={false} />,
+export const NonDismissible: Story = {
+  render: () => <SheetDemo position="bottom" dismissible={false} />,
 };
 
-export const MobileNavigation: StoryObj = {
+export const MobileNavigation: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
     const menuItems = ['Hjem', 'Produkter', 'Tjenester', 'Om oss', 'Kontakt'];
@@ -138,7 +140,7 @@ export const MobileNavigation: StoryObj = {
   },
 };
 
-export const ActionSheet: StoryObj = {
+export const ActionSheet: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
     const actions = [

@@ -5,7 +5,8 @@
 }
 
 .ds-select__label {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-gray-700);
 }
@@ -52,7 +53,7 @@
   appearance: none;
   border: none;
   background: transparent;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   color: var(--color-gray-900);
   outline: none;
   cursor: pointer;
@@ -78,7 +79,7 @@
 }
 
 .ds-select--sm .ds-select__field {
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 .ds-select--md {
@@ -87,7 +88,7 @@
 }
 
 .ds-select--md .ds-select__field {
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 .ds-select--lg {
@@ -96,7 +97,7 @@
 }
 
 .ds-select--lg .ds-select__field {
-  font-size: var(--text-base);
+  font-size: var(--text-mono-base);
 }
 
 .ds-select__error {

@@ -1,6 +1,7 @@
-import { forwardRef, useEffect, useRef, type ReactNode } from 'react';
+import { forwardRef, useEffect, useRef, useCallback, type ReactNode } from 'react';
 import { motion, AnimatePresence, useDragControls, type PanInfo } from 'motion/react';
 import { cn } from '../../utils/cn';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 import './Sheet.css';
 
 export type SheetPosition = 'bottom' | 'right' | 'left';
@@ -37,6 +38,10 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
     const dragControls = useDragControls();
     const constraintsRef = useRef<HTMLDivElement>(null);
 
+    const close = useCallback(() => onOpenChange(false), [onOpenChange]);
+
+    useEscapeKey(close, open && dismissible);
+
     useEffect(() => {
       if (open && modal) {
         document.body.style.overflow = 'hidden';
@@ -46,17 +51,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
       };
     }, [open, modal]);
 
-    useEffect(() => {
-      const handleEscape = (e: KeyboardEvent) => {
-        if (e.key === 'Escape' && open && dismissible) {
-          onOpenChange(false);
-        }
-      };
-      document.addEventListener('keydown', handleEscape);
-      return () => document.removeEventListener('keydown', handleEscape);
-    }, [open, dismissible, onOpenChange]);
-
-    const handleDragEnd = (_: never, info: PanInfo) => {
+    const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
       if (!dismissible) return;
 
       const shouldClose =

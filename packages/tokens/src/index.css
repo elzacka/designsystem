@@ -1,0 +1,20 @@
+/**
+ * Design System Tokens - Default Export
+ *
+ * Convenience import for standard setup (teal accent).
+ * Includes: primitives + base theme + teal accent
+ *
+ * Usage:
+ *   import '@designsystem/tokens';
+ *
+ * For custom accent:
+ *   import '@designsystem/tokens/primitives';
+ *   import '@designsystem/tokens/themes/base';
+ *   import '@designsystem/tokens/themes/accents/forest';
+ *
+ * @package @designsystem/tokens
+ */
+
+@import './primitives.css';
+@import './themes/base.css';
+@import './themes/accents/teal.css';

@@ -2,13 +2,16 @@ import {
   forwardRef,
   useState,
   useRef,
-  useEffect,
+  useCallback,
   type InputHTMLAttributes,
   type ReactNode,
   type KeyboardEvent,
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../../utils/cn';
+import { mergeRefs } from '../../utils/mergeRefs';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { SearchIcon, CloseIcon, SpinnerIcon } from '../Icons';
 import './Search.css';
 
 export type SearchSize = 'sm' | 'md' | 'lg';
@@ -48,13 +51,16 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     },
     ref
   ) => {
-    const [internalValue, setInternalValue] = useState(defaultValue?.toString() || '');
+    const [internalValue, setInternalValue] = useState(defaultValue?.toString() ?? '');
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const inputRef = useRef<HTMLInputElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const currentValue = value !== undefined ? value.toString() : internalValue;
+    const currentValue = value !== undefined ? String(value ?? '') : internalValue;
+
+    const closeSuggestions = useCallback(() => setShowSuggestions(false), []);
+    useClickOutside(wrapperRef, closeSuggestions, showSuggestions);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
@@ -73,6 +79,16 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       onChange?.('');
       onClear?.();
       inputRef.current?.focus();
+    };
+
+    const handleSuggestionSelect = (suggestion: string) => {
+      if (value === undefined) {
+        setInternalValue(suggestion);
+      }
+      onChange?.(suggestion);
+      onSuggestionSelect?.(suggestion);
+      setShowSuggestions(false);
+      setSelectedIndex(-1);
     };
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -95,56 +111,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       }
     };
 
-    const handleSuggestionSelect = (suggestion: string) => {
-      if (value === undefined) {
-        setInternalValue(suggestion);
-      }
-      onChange?.(suggestion);
-      onSuggestionSelect?.(suggestion);
-      setShowSuggestions(false);
-      setSelectedIndex(-1);
-    };
-
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-          setShowSuggestions(false);
-        }
-      };
-
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
-
-    const combinedRef = (node: HTMLInputElement) => {
-      (inputRef as React.MutableRefObject<HTMLInputElement | null>).current = node;
-      if (typeof ref === 'function') {
-        ref(node);
-      } else if (ref) {
-        ref.current = node;
-      }
-    };
-
     return (
       <div ref={wrapperRef} className={cn('ds-search', `ds-search--${size}`, className)}>
         <div className="ds-search__input-wrapper">
           <span className="ds-search__icon" aria-hidden="true">
-            {leftIcon || (
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-            )}
+            {leftIcon || <SearchIcon />}
           </span>
           <input
-            ref={combinedRef}
+            ref={mergeRefs(inputRef, ref)}
             type="search"
             className="ds-search__input"
             value={currentValue}
@@ -163,18 +137,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           />
           {loading && (
             <span className="ds-search__loader" aria-label="Laster...">
-              <svg className="ds-search__loader-icon" viewBox="0 0 24 24">
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeDasharray="32"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <SpinnerIcon className="ds-search__loader-icon" />
             </span>
           )}
           {showClearButton && currentValue && !loading && (
@@ -184,16 +147,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               onClick={handleClear}
               aria-label="Tøm søk"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
+              <CloseIcon size={16} />
             </button>
           )}
         </div>

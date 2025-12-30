@@ -1,14 +1,17 @@
 import {
   forwardRef,
-  useCallback,
   useEffect,
   useId,
   useRef,
+  useState,
   type HTMLAttributes,
   type ReactNode,
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../../utils/cn';
+import { mergeRefs } from '../../utils/mergeRefs';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './Modal.css';
 
 export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
@@ -37,61 +40,23 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
     ref
   ) => {
     const modalRef = useRef<HTMLDivElement>(null);
-    const previousActiveElement = useRef<HTMLElement | null>(null);
     const titleId = useId();
 
-    // Focus trap implementation
-    const handleFocusTrap = useCallback((e: KeyboardEvent) => {
-      if (e.key !== 'Tab') return;
+    // Use shared hooks for escape key and focus trap
+    useEscapeKey(onClose, isOpen && closeOnEscape);
+    useFocusTrap(modalRef, isOpen);
 
-      const modal = modalRef.current;
-      if (!modal) return;
-
-      const focusableElements = modal.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement?.focus();
-      } else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement?.focus();
-      }
-    }, []);
-
+    // Lock body scroll when modal is open
     useEffect(() => {
       if (isOpen) {
-        previousActiveElement.current = document.activeElement as HTMLElement;
         document.body.style.overflow = 'hidden';
-        modalRef.current?.focus();
       } else {
         document.body.style.overflow = '';
-        previousActiveElement.current?.focus();
       }
       return () => {
         document.body.style.overflow = '';
       };
     }, [isOpen]);
-
-    useEffect(() => {
-      if (!isOpen) return;
-
-      const handleEscape = (e: KeyboardEvent) => {
-        if (e.key === 'Escape' && closeOnEscape) {
-          onClose();
-        }
-      };
-
-      document.addEventListener('keydown', handleEscape);
-      document.addEventListener('keydown', handleFocusTrap);
-      return () => {
-        document.removeEventListener('keydown', handleEscape);
-        document.removeEventListener('keydown', handleFocusTrap);
-      };
-    }, [isOpen, closeOnEscape, onClose, handleFocusTrap]);
 
     return (
       <AnimatePresence>
@@ -108,11 +73,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             />
             <div className="ds-modal__wrapper">
               <motion.div
-                ref={(node) => {
-                  (modalRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
-                  if (typeof ref === 'function') ref(node);
-                  else if (ref) ref.current = node;
-                }}
+                ref={mergeRefs(modalRef, ref)}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={titleId}
@@ -142,17 +103,20 @@ export interface ModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
 
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ className, children, ...props }, ref) => {
-    const modalTitleId =
-      typeof document !== 'undefined'
-        ? (ref as React.RefObject<HTMLDivElement>)?.current
-            ?.closest('[data-modal-title-id]')
-            ?.getAttribute('data-modal-title-id')
-        : undefined;
+    const innerRef = useRef<HTMLDivElement>(null);
+    const [titleId, setTitleId] = useState<string | undefined>(undefined);
+
+    useEffect(() => {
+      const modal = innerRef.current?.closest('[data-modal-title-id]');
+      if (modal) {
+        setTitleId(modal.getAttribute('data-modal-title-id') || undefined);
+      }
+    }, []);
 
     return (
       <div
-        ref={ref}
-        id={modalTitleId || undefined}
+        ref={mergeRefs(innerRef, ref)}
+        id={titleId}
         className={cn('ds-modal__header', className)}
         {...props}
       >

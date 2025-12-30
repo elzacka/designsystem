@@ -4,8 +4,8 @@
   left: var(--space-4);
   z-index: 9999;
   padding: var(--space-3) var(--space-4);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-white);
   background-color: var(--color-primary-600);

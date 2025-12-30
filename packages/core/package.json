@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@designsystem/tokens": "workspace:*",
+    "@emotion/is-prop-valid": "^1.4.0",
     "motion": "^12.23.26"
   },
   "devDependencies": {

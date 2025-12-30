@@ -5,7 +5,8 @@
 }
 
 .ds-input__label {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-gray-700);
 }
@@ -50,14 +51,14 @@
   flex: 1;
   border: none;
   background: transparent;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   color: var(--color-gray-900);
   outline: none;
   width: 100%;
 }
 
 .ds-input__field::placeholder {
-  color: var(--color-gray-400);
+  color: var(--color-gray-500);
 }
 
 .ds-input__field:disabled {
@@ -80,7 +81,7 @@
 }
 
 .ds-input--sm .ds-input__field {
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 .ds-input--md {
@@ -89,7 +90,7 @@
 }
 
 .ds-input--md .ds-input__field {
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 .ds-input--lg {
@@ -98,7 +99,7 @@
 }
 
 .ds-input--lg .ds-input__field {
-  font-size: var(--text-base);
+  font-size: var(--text-mono-base);
 }
 
 .ds-input__error {

@@ -2,15 +2,18 @@ import {
   forwardRef,
   useState,
   useRef,
-  useEffect,
   createContext,
   useContext,
+  useCallback,
   type HTMLAttributes,
   type ReactNode,
   type ButtonHTMLAttributes,
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../../utils/cn';
+import { mergeRefs } from '../../utils/mergeRefs';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 import './Dropdown.css';
 
 interface DropdownContextValue {
@@ -41,37 +44,16 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
-    const toggle = () => setIsOpen((prev) => !prev);
-    const close = () => setIsOpen(false);
+    const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
+    const close = useCallback(() => setIsOpen(false), []);
 
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-          close();
-        }
-      };
-
-      const handleEscape = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          close();
-        }
-      };
-
-      if (isOpen) {
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('keydown', handleEscape);
-      }
-
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('keydown', handleEscape);
-      };
-    }, [isOpen]);
+    useClickOutside(dropdownRef, close, isOpen);
+    useEscapeKey(close, isOpen);
 
     return (
       <DropdownContext.Provider value={{ isOpen, toggle, close }}>
         <div
-          ref={ref || dropdownRef}
+          ref={mergeRefs(dropdownRef, ref)}
           className={cn('ds-dropdown', `ds-dropdown--align-${align}`, className)}
           {...props}
         >

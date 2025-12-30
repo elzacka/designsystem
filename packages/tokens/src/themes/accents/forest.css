@@ -1,0 +1,58 @@
+/**
+ * Forest Accent - Skrive
+ *
+ * Assosiasjon: Blekk, papir, skog/ro
+ * Brukes for: Skrive (desktop-app)
+ *
+ * @package @designsystem/tokens
+ */
+
+:root {
+  /* ========================================
+   * PRIMARY/ACCENT SCALE (Forest Green)
+   * ======================================== */
+
+  --color-primary-50: #eef5f0;
+  --color-primary-100: #ddebe1;
+  --color-primary-200: #bbd7c3;
+  --color-primary-300: #99c3a5;
+  --color-primary-400: #77af87;
+  --color-primary-500: #4a7c59;
+  --color-primary-600: #3b6347;
+  --color-primary-700: #2c4a35;
+  --color-primary-800: #1d3124;
+  --color-primary-900: #0f1912;
+  --color-primary-950: #070c09;
+
+  /* ========================================
+   * SEMANTIC ACCENT COLORS
+   * ======================================== */
+
+  --color-accent: #4a7c59;
+  --color-accent-hover: #3b6347;
+  --color-accent-foreground: #f4f1ea;
+  --color-ring: #4a7c59;
+  --color-focus: #ddebe1;
+}
+
+/* ========================================
+ * DARK MODE
+ * ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: #77af87;
+    --color-accent-hover: #99c3a5;
+    --color-accent-foreground: #1c1c1c;
+    --color-ring: #77af87;
+    --color-focus: #1d3124;
+  }
+}
+
+.dark {
+  --color-accent: #77af87;
+  --color-accent-hover: #99c3a5;
+  --color-accent-foreground: #1c1c1c;
+  --color-ring: #77af87;
+  --color-focus: #1d3124;
+}

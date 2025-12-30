@@ -25,7 +25,7 @@ export const Divider = forwardRef<HTMLHRElement, DividerProps>(
           `ds-divider--${variant}`,
           className
         )}
-        aria-orientation={orientation}
+        {...(!decorative && { 'aria-orientation': orientation })}
         role={decorative ? 'presentation' : 'separator'}
         {...props}
       />

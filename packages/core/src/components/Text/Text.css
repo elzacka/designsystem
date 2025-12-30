@@ -1,54 +1,64 @@
 .ds-text {
   margin: 0;
-  font-family: var(--font-sans);
   color: inherit;
+  font-family: var(--font-mono);
 }
 
-/* Display variants */
+/*
+ * Typography Scale for DM Mono
+ *
+ * Display: Hero headlines, marketing (48-72px, medium weight)
+ * Heading: Section titles (20-36px, medium weight)
+ * Body: Reading text (16-18px, normal weight, relaxed line-height)
+ * Label: Form labels, UI text (13-17px, medium weight)
+ * Caption: Helper text, metadata (12-13px, normal weight)
+ */
+
+/* Display variants - Large headlines with presence */
 .ds-text--display-lg {
-  font-size: 3.5rem;
+  font-size: var(--text-7xl);
   line-height: 1.1;
-  font-weight: var(--font-bold);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
 }
 
 .ds-text--display-md {
-  font-size: 2.75rem;
+  font-size: var(--text-6xl);
   line-height: 1.15;
-  font-weight: var(--font-bold);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
 }
 
 .ds-text--display-sm {
-  font-size: 2.25rem;
+  font-size: var(--text-5xl);
   line-height: 1.2;
-  font-weight: var(--font-bold);
-  letter-spacing: -0.01em;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-normal);
 }
 
-/* Heading variants */
+/* Heading variants - Clear hierarchy */
 .ds-text--heading-xl {
   font-size: var(--text-4xl);
   line-height: var(--leading-tight);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 .ds-text--heading-lg {
   font-size: var(--text-3xl);
   line-height: var(--leading-tight);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
 }
 
 .ds-text--heading-md {
   font-size: var(--text-2xl);
   line-height: var(--leading-snug);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
 }
 
 .ds-text--heading-sm {
   font-size: var(--text-xl);
   line-height: var(--leading-snug);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
 }
 
 .ds-text--heading-xs {
@@ -57,49 +67,67 @@
   font-weight: var(--font-medium);
 }
 
-/* Body variants */
+/* Body variants - Optimized for reading */
 .ds-text--body-lg {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
+  font-weight: var(--font-normal);
 }
 
 .ds-text--body-md {
   font-size: var(--text-base);
   line-height: var(--leading-normal);
+  font-weight: var(--font-normal);
 }
 
 .ds-text--body-sm {
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
+  font-weight: var(--font-normal);
 }
 
-/* Label variants */
+/* Label variants - UI text, form labels */
 .ds-text--label-lg {
-  font-size: var(--text-base);
-  line-height: var(--leading-tight);
+  font-size: var(--text-mono-base);
+  line-height: var(--leading-snug);
   font-weight: var(--font-medium);
 }
 
 .ds-text--label-md {
-  font-size: var(--text-sm);
-  line-height: var(--leading-tight);
+  font-size: var(--text-mono-sm);
+  line-height: var(--leading-snug);
   font-weight: var(--font-medium);
 }
 
 .ds-text--label-sm {
-  font-size: var(--text-xs);
-  line-height: var(--leading-tight);
+  font-size: var(--text-mono-xs);
+  line-height: var(--leading-snug);
   font-weight: var(--font-medium);
 }
 
-/* Caption */
+/* Caption - Small helper text */
 .ds-text--caption {
   font-size: var(--text-xs);
   line-height: var(--leading-normal);
+  font-weight: var(--font-normal);
   color: var(--color-gray-500);
 }
 
+/* Code - Inline code snippets */
+.ds-text--code {
+  font-size: 0.9em;
+  line-height: inherit;
+  font-weight: var(--font-normal);
+  background-color: var(--color-gray-100);
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
+}
+
 /* Weight modifiers */
+.ds-text--light {
+  font-weight: var(--font-light);
+}
+
 .ds-text--regular {
   font-weight: var(--font-normal);
 }
@@ -108,12 +136,13 @@
   font-weight: var(--font-medium);
 }
 
+/* Aliases for compatibility */
 .ds-text--semibold {
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
 }
 
 .ds-text--bold {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 /* Alignment */
@@ -134,4 +163,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Muted text */
+.ds-text--muted {
+  color: var(--color-muted-foreground);
 }

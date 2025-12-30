@@ -102,9 +102,13 @@ export interface TableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement>
 }
 
 export const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
-  ({ sortable = false, sorted = false, className, children, onClick, ...props }, ref) => (
+  (
+    { sortable = false, sorted = false, scope = 'col', className, children, onClick, ...props },
+    ref
+  ) => (
     <th
       ref={ref}
+      scope={scope}
       className={cn(
         'ds-table__header',
         sortable && 'ds-table__header--sortable',

@@ -6,13 +6,21 @@
   display: flex;
   border-bottom: 1px solid var(--color-gray-200);
   gap: var(--space-1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ds-tabs__list::-webkit-scrollbar {
+  display: none;
 }
 
 .ds-tabs__tab {
   position: relative;
   padding: var(--space-3) var(--space-4);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-medium);
   color: var(--color-gray-600);
   background: none;
@@ -34,6 +42,10 @@
 
 .ds-tabs__tab:hover:not(:disabled) {
   color: var(--color-gray-900);
+}
+
+.ds-tabs__tab:active:not(:disabled) {
+  color: var(--color-primary-700);
 }
 
 .ds-tabs__tab:focus-visible {

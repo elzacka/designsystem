@@ -7,7 +7,7 @@
 .ds-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
 }
 
 /* Sizes */
@@ -32,6 +32,7 @@
 }
 
 .ds-table__header {
+  font-family: var(--font-mono);
   font-weight: var(--font-semibold);
   color: var(--color-gray-700);
   text-align: left;

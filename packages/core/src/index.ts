@@ -55,3 +55,13 @@ export * from './components/FileUpload';
 
 // Utilities
 export { cn } from './utils/cn';
+export { mergeRefs } from './utils/mergeRefs';
+export { buildAriaDescribedBy } from './utils/aria';
+
+// Hooks
+export { useClickOutside } from './hooks/useClickOutside';
+export { useEscapeKey } from './hooks/useEscapeKey';
+export { useFocusTrap } from './hooks/useFocusTrap';
+
+// Icons
+export * from './components/Icons';

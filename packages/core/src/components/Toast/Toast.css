@@ -58,8 +58,9 @@
 }
 
 .ds-toast__title {
+  font-family: var(--font-mono);
   margin: 0 0 var(--space-1);
-  font-size: var(--text-sm);
+  font-size: var(--text-mono-sm);
   font-weight: var(--font-semibold);
   color: var(--color-gray-900);
 }

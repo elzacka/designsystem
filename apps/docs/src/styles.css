@@ -1,25 +1,10 @@
-/* Import tokens */
-@import '@designsystem/tokens/css';
-
-/* Import all component styles from the built bundle */
-@import '@designsystem/core/css';
+/*
+ * Storybook-specific styles
+ * Tokens and component styles are imported in .storybook/preview.tsx
+ */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: var(--color-gray-900);
-  background-color: var(--color-white);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--color-gray-100);
-    background-color: var(--color-gray-900);
-  }
 }

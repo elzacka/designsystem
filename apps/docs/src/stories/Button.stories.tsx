@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@designsystem/core';
 
 const meta = {
-  title: 'Komponenter/Primitiver/Button',
+  title: 'Komponenter/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -33,6 +33,7 @@ export const Primary: Story = {
   args: {
     children: 'Primary Button',
     variant: 'primary',
+    size: 'md',
   },
 };
 

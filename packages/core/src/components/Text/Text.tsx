@@ -18,9 +18,10 @@ export type TextVariant =
   | 'label-lg'
   | 'label-md'
   | 'label-sm'
-  | 'caption';
+  | 'caption'
+  | 'code';
 
-export type TextWeight = 'regular' | 'medium' | 'semibold' | 'bold';
+export type TextWeight = 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
 export type TextAlign = 'left' | 'center' | 'right';
 
 type TextProps<C extends ElementType> = PolymorphicComponentPropWithRef<
@@ -30,6 +31,7 @@ type TextProps<C extends ElementType> = PolymorphicComponentPropWithRef<
     weight?: TextWeight;
     align?: TextAlign;
     truncate?: boolean;
+    muted?: boolean;
     children?: ReactNode;
   }
 >;
@@ -45,6 +47,7 @@ export const Text: TextComponent = forwardRef<any, any>(
       weight,
       align,
       truncate = false,
+      muted = false,
       className,
       children,
       ...props
@@ -62,6 +65,7 @@ export const Text: TextComponent = forwardRef<any, any>(
           weight && `ds-text--${weight}`,
           align && `ds-text--${align}`,
           truncate && 'ds-text--truncate',
+          muted && 'ds-text--muted',
           className
         )}
         {...props}
@@ -81,6 +85,7 @@ function getDefaultElement(variant: TextVariant): ElementType {
   if (variant === 'heading-xs') return 'h5';
   if (variant.startsWith('label')) return 'span';
   if (variant === 'caption') return 'span';
+  if (variant === 'code') return 'code';
   return 'p';
 }
 
