@@ -10,17 +10,47 @@ import {
   SuccessIcon,
   WarningIcon,
   ErrorIcon,
-  // Tråkke outdoor-ikoner
+  // Tråkke - Outdoor & Natur
   MountainIcon,
   CompassIcon,
   TentIcon,
   FootprintsIcon,
+  TreePineIcon,
+  BinocularsIcon,
+  // Tråkke - Kart & Navigasjon
   MapPinIcon,
   LayersIcon,
   LocateIcon,
   RouteIcon,
-  TreePineIcon,
-  BinocularsIcon,
+  // Tråkke - UI & Navigasjon
+  MenuIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  HomeIcon,
+  EyeIcon,
+  EyeOffIcon,
+  // Tråkke - Handlinger
+  EditIcon,
+  TrashIcon,
+  CopyIcon,
+  DownloadIcon,
+  RefreshIcon,
+  FilterIcon,
+  PlusIcon,
+  CheckIcon,
+  // Tråkke - Admin & Bruker
+  SettingsIcon,
+  UserIcon,
+  LockIcon,
+  // Tråkke - Vær
+  CloudIcon,
+  WindIcon,
+  DropletsIcon,
+  ThermometerIcon,
+  SunIcon,
+  // Tråkke - System
+  FolderIcon,
+  SmartphoneIcon,
 } from '@designsystem/core';
 
 const meta = {
@@ -47,17 +77,53 @@ const iconCategories = {
     { name: 'WarningIcon', component: WarningIcon },
     { name: 'ErrorIcon', component: ErrorIcon },
   ],
-  'Tråkke - Outdoor': [
+  'Tråkke - Outdoor & Natur': [
     { name: 'MountainIcon', component: MountainIcon },
     { name: 'CompassIcon', component: CompassIcon },
     { name: 'TentIcon', component: TentIcon },
     { name: 'FootprintsIcon', component: FootprintsIcon },
+    { name: 'TreePineIcon', component: TreePineIcon },
+    { name: 'BinocularsIcon', component: BinocularsIcon },
+  ],
+  'Tråkke - Kart & Navigasjon': [
     { name: 'MapPinIcon', component: MapPinIcon },
     { name: 'LayersIcon', component: LayersIcon },
     { name: 'LocateIcon', component: LocateIcon },
     { name: 'RouteIcon', component: RouteIcon },
-    { name: 'TreePineIcon', component: TreePineIcon },
-    { name: 'BinocularsIcon', component: BinocularsIcon },
+  ],
+  'Tråkke - UI': [
+    { name: 'MenuIcon', component: MenuIcon },
+    { name: 'ArrowLeftIcon', component: ArrowLeftIcon },
+    { name: 'ArrowRightIcon', component: ArrowRightIcon },
+    { name: 'HomeIcon', component: HomeIcon },
+    { name: 'EyeIcon', component: EyeIcon },
+    { name: 'EyeOffIcon', component: EyeOffIcon },
+  ],
+  'Tråkke - Handlinger': [
+    { name: 'EditIcon', component: EditIcon },
+    { name: 'TrashIcon', component: TrashIcon },
+    { name: 'CopyIcon', component: CopyIcon },
+    { name: 'DownloadIcon', component: DownloadIcon },
+    { name: 'RefreshIcon', component: RefreshIcon },
+    { name: 'FilterIcon', component: FilterIcon },
+    { name: 'PlusIcon', component: PlusIcon },
+    { name: 'CheckIcon', component: CheckIcon },
+  ],
+  'Tråkke - Admin & Bruker': [
+    { name: 'SettingsIcon', component: SettingsIcon },
+    { name: 'UserIcon', component: UserIcon },
+    { name: 'LockIcon', component: LockIcon },
+  ],
+  'Tråkke - Vær': [
+    { name: 'CloudIcon', component: CloudIcon },
+    { name: 'WindIcon', component: WindIcon },
+    { name: 'DropletsIcon', component: DropletsIcon },
+    { name: 'ThermometerIcon', component: ThermometerIcon },
+    { name: 'SunIcon', component: SunIcon },
+  ],
+  'Tråkke - System': [
+    { name: 'FolderIcon', component: FolderIcon },
+    { name: 'SmartphoneIcon', component: SmartphoneIcon },
   ],
 };
 
@@ -129,7 +195,7 @@ const IconsComponent = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
               gap: '0.5rem',
             }}
           >
