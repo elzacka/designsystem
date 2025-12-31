@@ -14,7 +14,7 @@ export default defineConfig({
     alias: {
       '@designsystem/tokens/css': path.resolve(dirname, 'packages/tokens/src/index.css'),
       '@designsystem/tokens': path.resolve(dirname, 'packages/tokens/src'),
-      '@designsystem/core/css': path.resolve(dirname, 'packages/core/dist/index.css'),
+      '@designsystem/core/css': path.resolve(dirname, 'packages/core/src/styles.css'),
       '@designsystem/core': path.resolve(dirname, 'packages/core/src'),
     },
   },

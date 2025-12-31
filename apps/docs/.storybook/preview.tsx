@@ -5,11 +5,48 @@ import { useEffect } from 'react';
 
 // Import design tokens directly from source for HMR
 import '../../../packages/tokens/src/primitives.css';
+import '../../../packages/tokens/src/tokens.css';
 import '../../../packages/tokens/src/themes/base.css';
 import '../../../packages/tokens/src/themes/accents/teal.css';
 
-// Import component styles
-import '../../../packages/core/dist/index.css';
+// Import component styles from source (not dist) for HMR and CI compatibility
+import '../../../packages/core/src/components/Accordion/Accordion.css';
+import '../../../packages/core/src/components/Alert/Alert.css';
+import '../../../packages/core/src/components/Avatar/Avatar.css';
+import '../../../packages/core/src/components/Badge/Badge.css';
+import '../../../packages/core/src/components/Box/Box.css';
+import '../../../packages/core/src/components/Breadcrumbs/Breadcrumbs.css';
+import '../../../packages/core/src/components/Button/Button.css';
+import '../../../packages/core/src/components/Checkbox/Checkbox.css';
+import '../../../packages/core/src/components/CopyButton/CopyButton.css';
+import '../../../packages/core/src/components/Divider/Divider.css';
+import '../../../packages/core/src/components/Dropdown/Dropdown.css';
+import '../../../packages/core/src/components/FileUpload/FileUpload.css';
+import '../../../packages/core/src/components/Grid/Grid.css';
+import '../../../packages/core/src/components/Icon/Icon.css';
+import '../../../packages/core/src/components/Input/Input.css';
+import '../../../packages/core/src/components/Link/Link.css';
+import '../../../packages/core/src/components/List/List.css';
+import '../../../packages/core/src/components/Modal/Modal.css';
+import '../../../packages/core/src/components/Pagination/Pagination.css';
+import '../../../packages/core/src/components/Popover/Popover.css';
+import '../../../packages/core/src/components/ProgressBar/ProgressBar.css';
+import '../../../packages/core/src/components/Radio/Radio.css';
+import '../../../packages/core/src/components/Search/Search.css';
+import '../../../packages/core/src/components/Select/Select.css';
+import '../../../packages/core/src/components/Sheet/Sheet.css';
+import '../../../packages/core/src/components/Skeleton/Skeleton.css';
+import '../../../packages/core/src/components/SkipLink/SkipLink.css';
+import '../../../packages/core/src/components/Spinner/Spinner.css';
+import '../../../packages/core/src/components/Stack/Stack.css';
+import '../../../packages/core/src/components/Switch/Switch.css';
+import '../../../packages/core/src/components/Table/Table.css';
+import '../../../packages/core/src/components/Tabs/Tabs.css';
+import '../../../packages/core/src/components/Tag/Tag.css';
+import '../../../packages/core/src/components/Text/Text.css';
+import '../../../packages/core/src/components/Textarea/Textarea.css';
+import '../../../packages/core/src/components/Toast/Toast.css';
+import '../../../packages/core/src/components/Tooltip/Tooltip.css';
 
 // Import Storybook-specific styles
 import '../src/styles.css';
