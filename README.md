@@ -122,7 +122,3 @@ Tokens er definert i `packages/tokens/src/tokens.css` og eksportert som CSS cust
 - Tastaturnavigasjon
 - ARIA-attributter der nødvendig
 - Minimum touch target 44x44px
-
-## Lisens
-
-Privat
