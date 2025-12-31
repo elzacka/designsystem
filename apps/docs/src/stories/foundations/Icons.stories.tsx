@@ -51,6 +51,42 @@ import {
   // Tråkke - System
   FolderIcon,
   SmartphoneIcon,
+  // Skrive - Tekstformatering
+  BoldIcon,
+  ItalicIcon,
+  HeadingIcon,
+  QuoteIcon,
+  CodeIcon,
+  ListIcon,
+  ListOrderedIcon,
+  LinkIcon,
+  ExternalLinkIcon,
+  UndoIcon,
+  RedoIcon,
+  FileTextIcon,
+  UploadIcon,
+  KeyboardIcon,
+  // Lyttejeger - Avspilling
+  PlayIcon,
+  PauseIcon,
+  PlayCircleIcon,
+  SkipForwardIcon,
+  SkipBackIcon,
+  RotateCcwIcon,
+  RotateCwIcon,
+  Volume2Icon,
+  VolumeXIcon,
+  ListMusicIcon,
+  ListPlusIcon,
+  GripVerticalIcon,
+  PodcastIcon,
+  HeadphonesIcon,
+  MoreVerticalIcon,
+  HelpCircleIcon,
+  ClockIcon,
+  HeartIcon,
+  MoonIcon,
+  WifiOffIcon,
 } from '@designsystem/core';
 
 const meta = {
@@ -124,6 +160,58 @@ const iconCategories = {
   'Tråkke - System': [
     { name: 'FolderIcon', component: FolderIcon },
     { name: 'SmartphoneIcon', component: SmartphoneIcon },
+  ],
+  'Skrive - Tekstformatering': [
+    { name: 'BoldIcon', component: BoldIcon },
+    { name: 'ItalicIcon', component: ItalicIcon },
+    { name: 'HeadingIcon', component: HeadingIcon },
+    { name: 'QuoteIcon', component: QuoteIcon },
+    { name: 'CodeIcon', component: CodeIcon },
+  ],
+  'Skrive - Lister': [
+    { name: 'ListIcon', component: ListIcon },
+    { name: 'ListOrderedIcon', component: ListOrderedIcon },
+  ],
+  'Skrive - Lenker & Filer': [
+    { name: 'LinkIcon', component: LinkIcon },
+    { name: 'ExternalLinkIcon', component: ExternalLinkIcon },
+    { name: 'FileTextIcon', component: FileTextIcon },
+    { name: 'UploadIcon', component: UploadIcon },
+  ],
+  'Skrive - Historikk & Verktøy': [
+    { name: 'UndoIcon', component: UndoIcon },
+    { name: 'RedoIcon', component: RedoIcon },
+    { name: 'KeyboardIcon', component: KeyboardIcon },
+  ],
+  'Lyttejeger - Avspilling': [
+    { name: 'PlayIcon', component: PlayIcon },
+    { name: 'PauseIcon', component: PauseIcon },
+    { name: 'PlayCircleIcon', component: PlayCircleIcon },
+    { name: 'SkipForwardIcon', component: SkipForwardIcon },
+    { name: 'SkipBackIcon', component: SkipBackIcon },
+    { name: 'RotateCcwIcon', component: RotateCcwIcon },
+    { name: 'RotateCwIcon', component: RotateCwIcon },
+  ],
+  'Lyttejeger - Lyd': [
+    { name: 'Volume2Icon', component: Volume2Icon },
+    { name: 'VolumeXIcon', component: VolumeXIcon },
+  ],
+  'Lyttejeger - Spilleliste': [
+    { name: 'ListMusicIcon', component: ListMusicIcon },
+    { name: 'ListPlusIcon', component: ListPlusIcon },
+    { name: 'GripVerticalIcon', component: GripVerticalIcon },
+  ],
+  'Lyttejeger - Podcast': [
+    { name: 'PodcastIcon', component: PodcastIcon },
+    { name: 'HeadphonesIcon', component: HeadphonesIcon },
+  ],
+  'Lyttejeger - UI': [
+    { name: 'MoreVerticalIcon', component: MoreVerticalIcon },
+    { name: 'HelpCircleIcon', component: HelpCircleIcon },
+    { name: 'ClockIcon', component: ClockIcon },
+    { name: 'HeartIcon', component: HeartIcon },
+    { name: 'MoonIcon', component: MoonIcon },
+    { name: 'WifiOffIcon', component: WifiOffIcon },
   ],
 };
 

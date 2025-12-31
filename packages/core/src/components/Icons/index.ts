@@ -50,5 +50,62 @@ export {
   SmartphoneIcon,
 } from './trakke';
 
+// Skrive-spesifikke ikoner (tekstredigering)
+export {
+  // Tekstformatering
+  BoldIcon,
+  ItalicIcon,
+  HeadingIcon,
+  QuoteIcon,
+  CodeIcon,
+  // Lister
+  ListIcon,
+  ListOrderedIcon,
+  // Lenker
+  LinkIcon,
+  ExternalLinkIcon,
+  // Historikk
+  UndoIcon,
+  RedoIcon,
+  // Filer
+  FileTextIcon,
+  UploadIcon,
+  // Verktøy
+  KeyboardIcon,
+} from './skrive';
+
+// Sporjeger-spesifikke ikoner
+export { FileTextIcon as DocumentIcon } from './sporjeger';
+
+// Lyttejeger-spesifikke ikoner (podcast)
+export {
+  // Avspilling
+  PlayIcon,
+  PauseIcon,
+  PlayCircleIcon,
+  SkipForwardIcon,
+  SkipBackIcon,
+  RotateCcwIcon,
+  RotateCwIcon,
+  // Lyd
+  Volume2Icon,
+  VolumeXIcon,
+  // Spilleliste og kø
+  ListMusicIcon,
+  ListPlusIcon,
+  GripVerticalIcon,
+  // Podcast
+  PodcastIcon,
+  HeadphonesIcon,
+  // UI
+  MoreVerticalIcon,
+  HelpCircleIcon,
+  ClockIcon,
+  HeartIcon,
+  MoonIcon,
+  // Status
+  WifiOffIcon,
+} from './lyttejeger';
+
 export type { IconProps as SvgIconProps } from './CloseIcon';
 export type { ChevronIconProps } from './ChevronIcon';
