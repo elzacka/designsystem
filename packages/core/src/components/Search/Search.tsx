@@ -115,7 +115,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       <div ref={wrapperRef} className={cn('ds-search', `ds-search--${size}`, className)}>
         <div className="ds-search__input-wrapper">
           <span className="ds-search__icon" aria-hidden="true">
-            {leftIcon || <SearchIcon />}
+            {leftIcon || <SearchIcon size={16} />}
           </span>
           <input
             ref={mergeRefs(inputRef, ref)}
@@ -137,7 +137,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           />
           {loading && (
             <span className="ds-search__loader" aria-label="Laster...">
-              <SpinnerIcon className="ds-search__loader-icon" />
+              <SpinnerIcon size={16} className="ds-search__loader-icon" />
             </span>
           )}
           {showClearButton && currentValue && !loading && (
