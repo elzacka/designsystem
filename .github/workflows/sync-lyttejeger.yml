@@ -1,0 +1,191 @@
+name: Sync Lyttejeger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/lyttejeger/**'
+      - 'packages/tokens/**'
+      - 'packages/core/**'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync to Lyttejeger repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout designsystem
+        uses: actions/checkout@v4
+        with:
+          path: designsystem
+
+      - name: Checkout lyttejeger
+        uses: actions/checkout@v4
+        with:
+          repository: elzacka/lyttejeger
+          token: ${{ secrets.LYTTEJEGER_SYNC_TOKEN }}
+          path: lyttejeger
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+          cache-dependency-path: designsystem/pnpm-lock.yaml
+
+      - name: Install dependencies
+        working-directory: designsystem
+        run: pnpm install
+
+      - name: Build packages
+        working-directory: designsystem
+        run: |
+          pnpm --filter @designsystem/tokens build
+          pnpm --filter @designsystem/core build
+
+      - name: Sync source files
+        run: |
+          # Sync src folder
+          rsync -av --delete \
+            designsystem/apps/lyttejeger/src/ \
+            lyttejeger/src/
+
+          # Sync public folder
+          rsync -av --delete \
+            designsystem/apps/lyttejeger/public/ \
+            lyttejeger/public/
+
+          # Sync config files
+          cp designsystem/apps/lyttejeger/index.html lyttejeger/
+          cp designsystem/apps/lyttejeger/vite.config.ts lyttejeger/
+          cp designsystem/apps/lyttejeger/tsconfig*.json lyttejeger/
+          cp designsystem/apps/lyttejeger/package.json lyttejeger/
+          cp designsystem/apps/lyttejeger/CLAUDE.md lyttejeger/ 2>/dev/null || true
+
+      - name: Transform imports for standalone
+        working-directory: lyttejeger
+        run: |
+          # Replace @designsystem/core imports with local icons
+          find src -name "*.tsx" -type f -exec sed -i "s|from '@designsystem/core'|from './icons'|g" {} +
+
+          # Fix index.css to use local tokens
+          sed -i "s|@import '@designsystem/tokens/tokens';|@import './tokens/index.css';|g" src/index.css
+          sed -i "s|@import '@designsystem/core/css';||g" src/index.css
+
+      - name: Copy icons from core
+        run: |
+          mkdir -p lyttejeger/src/components/icons
+
+          # Copy shared icons
+          cp designsystem/packages/core/src/components/Icons/CloseIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/ChevronIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/SearchIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/SpinnerIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/AlertIcons.tsx lyttejeger/src/components/icons/
+
+          # Copy lyttejeger icons
+          cp designsystem/packages/core/src/components/Icons/lyttejeger/*.tsx lyttejeger/src/components/icons/
+
+          # Copy trakke icons needed by lyttejeger
+          cp designsystem/packages/core/src/components/Icons/trakke/ArrowLeftIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/trakke/TrashIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/trakke/RefreshIcon.tsx lyttejeger/src/components/icons/
+          cp designsystem/packages/core/src/components/Icons/trakke/CheckIcon.tsx lyttejeger/src/components/icons/
+
+          # Create icons index
+          cat > lyttejeger/src/components/icons/index.ts << 'EOF'
+          // Auto-generated from designsystem monorepo
+          // Lyttejeger icons - self-hosted for GDPR compliance
+
+          // Core UI icons
+          export { CloseIcon } from './CloseIcon';
+          export { ChevronIcon } from './ChevronIcon';
+          export { SearchIcon } from './SearchIcon';
+          export { SpinnerIcon } from './SpinnerIcon';
+          export { InfoIcon, SuccessIcon, WarningIcon, ErrorIcon } from './AlertIcons';
+
+          // Navigation
+          export { ArrowLeftIcon } from './ArrowLeftIcon';
+
+          // Actions
+          export { TrashIcon } from './TrashIcon';
+          export { RefreshIcon } from './RefreshIcon';
+          export { CheckIcon } from './CheckIcon';
+
+          // Playback
+          export { PlayIcon } from './PlayIcon';
+          export { PauseIcon } from './PauseIcon';
+          export { PlayCircleIcon } from './PlayCircleIcon';
+          export { SkipForwardIcon } from './SkipForwardIcon';
+          export { SkipBackIcon } from './SkipBackIcon';
+          export { RotateCcwIcon } from './RotateCcwIcon';
+          export { RotateCwIcon } from './RotateCwIcon';
+
+          // Audio
+          export { Volume2Icon } from './Volume2Icon';
+          export { VolumeXIcon } from './VolumeXIcon';
+
+          // Queue
+          export { ListMusicIcon } from './ListMusicIcon';
+          export { ListPlusIcon } from './ListPlusIcon';
+          export { GripVerticalIcon } from './GripVerticalIcon';
+
+          // Podcast
+          export { PodcastIcon } from './PodcastIcon';
+          export { HeadphonesIcon } from './HeadphonesIcon';
+
+          // UI
+          export { MoreVerticalIcon } from './MoreVerticalIcon';
+          export { HelpCircleIcon } from './HelpCircleIcon';
+          export { ClockIcon } from './ClockIcon';
+          export { HeartIcon } from './HeartIcon';
+          export { MoonIcon } from './MoonIcon';
+
+          // Status
+          export { WifiOffIcon } from './WifiOffIcon';
+
+          // Rating
+          export { StarIcon } from './StarIcon';
+
+          export type { IconProps } from './CloseIcon';
+          export type { ChevronIconProps } from './ChevronIcon';
+          EOF
+
+      - name: Copy tokens
+        run: |
+          mkdir -p lyttejeger/src/tokens
+          cp designsystem/packages/tokens/src/primitives.css lyttejeger/src/tokens/
+          cp designsystem/packages/tokens/src/tokens.css lyttejeger/src/tokens/
+          mkdir -p lyttejeger/src/tokens/themes/accents
+          cp designsystem/packages/tokens/src/themes/base.css lyttejeger/src/tokens/themes/
+          cp designsystem/packages/tokens/src/themes/accents/teal.css lyttejeger/src/tokens/themes/accents/
+
+          # Create tokens index
+          cat > lyttejeger/src/tokens/index.css << 'EOF'
+          /* Design Tokens - auto-synced from designsystem */
+          @import './primitives.css';
+          @import './tokens.css';
+          @import './themes/base.css';
+          @import './themes/accents/teal.css';
+          EOF
+
+      - name: Commit and push
+        working-directory: lyttejeger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add -A
+            git commit -m "sync: Update from designsystem monorepo
+
+          Auto-synced from elzacka/designsystem@${{ github.sha }}"
+            git push
+          fi
