@@ -177,6 +177,13 @@ jobs:
           @import './themes/accents/teal.css';
           EOF
 
+      - name: Regenerate package-lock.json
+        working-directory: lyttejeger
+        run: |
+          # Remove old lock file and regenerate to match transformed package.json
+          rm -f package-lock.json
+          npm install --package-lock-only
+
       - name: Commit and push
         working-directory: lyttejeger
         run: |
