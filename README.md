@@ -19,7 +19,23 @@ packages/
   core/       # React-komponenter
 apps/
   docs/       # Storybook dokumentasjon
+  lyttejeger/ # Podcast PWA
 ```
+
+## Apper
+
+### Lyttejeger
+
+Podcast-app som bruker designsystemet. Utvikles i monorepoet, synkroniseres automatisk til standalone-repo for deploy.
+
+```bash
+pnpm dev --filter lyttejeger   # Start dev server
+```
+
+**Deploy-flyt:**
+
+1. Push til `main` → GitHub Action synkroniserer til `elzacka/lyttejeger`
+2. Standalone-repoet deployer til GitHub Pages med API-hemmeligheter
 
 ## Bruk
 
