@@ -116,15 +116,13 @@ export function PodcastDetailView({
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        {onBack && (
+      {onBack && (
+        <header className={styles.header}>
           <button className={styles.backButton} onClick={onBack} aria-label="Tilbake">
             <ArrowLeftIcon size={24} />
           </button>
-        )}
-        <h1 className={styles.headerTitle}>Podcast</h1>
-        {onBack && <div className={styles.headerSpacer} />}
-      </header>
+        </header>
+      )}
 
       <div className={styles.content}>
         <section className={styles.podcastInfo}>

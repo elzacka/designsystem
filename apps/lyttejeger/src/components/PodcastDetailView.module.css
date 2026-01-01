@@ -2,6 +2,7 @@
 
 .page {
   min-height: 100vh;
+  padding-top: var(--nav-height);
   background: var(--bg-primary);
   overflow-x: hidden;
   width: 100%;
@@ -14,9 +15,7 @@
   z-index: var(--z-sticky);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-sm) var(--space-md);
-  padding-top: calc(var(--space-sm) + env(safe-area-inset-top, 0px));
   background: var(--bg-primary);
 }
 
@@ -46,18 +45,6 @@
 
 .backButton .material-symbols-outlined {
   font-size: var(--icon-md);
-}
-
-.headerTitle {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--font-base);
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.headerSpacer {
-  width: var(--button-lg);
 }
 
 .logo {
