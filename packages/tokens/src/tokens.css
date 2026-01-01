@@ -106,6 +106,7 @@
   --color-muted: #ebe7de; /* Sekundær bakgrunn */
   --color-muted-foreground: #5a5a5a; /* Sekundær tekst */
   --color-accent: #1a5f7a; /* Dempet blågrønn */
+  --color-accent-hover: #134a5f; /* Mørkere for hover */
   --color-accent-foreground: #f4f1ea;
   --color-border: #d4d0c6;
   --color-ring: #1a5f7a;
@@ -335,6 +336,7 @@
     --color-muted: #2c2c2c;
     --color-muted-foreground: #8a8a8a;
     --color-accent: #3397af;
+    --color-accent-hover: #66b1c3;
     --color-accent-foreground: #1c1c1c;
     --color-border: #3a3a3a;
     --color-ring: #3397af;
@@ -356,6 +358,7 @@
   --color-muted: #2c2c2c;
   --color-muted-foreground: #8a8a8a;
   --color-accent: #3397af;
+  --color-accent-hover: #66b1c3;
   --color-accent-foreground: #1c1c1c;
   --color-border: #3a3a3a;
   --color-ring: #3397af;

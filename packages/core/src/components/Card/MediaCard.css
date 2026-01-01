@@ -1,0 +1,260 @@
+/* MediaCard - Podcast/media card component following modern podcast app patterns */
+
+.ds-media-card {
+  display: grid;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+}
+
+/* Horizontal layout - default for podcast cards */
+.ds-media-card--horizontal {
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+/* Vertical layout - for grid displays */
+.ds-media-card--vertical {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Interactive states */
+.ds-media-card--interactive {
+  cursor: pointer;
+}
+
+.ds-media-card--interactive:hover {
+  border-color: var(--color-gray-300);
+  background-color: var(--color-gray-50);
+}
+
+.ds-media-card--interactive:active {
+  transform: scale(0.995);
+}
+
+.ds-media-card--interactive:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* ===========================================
+   Image container - FIXED SIZES (podcast standard)
+   =========================================== */
+.ds-media-card__image-container {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-gray-100);
+  /* Default size - will be overridden by size variants */
+  width: 64px;
+  height: 64px;
+}
+
+/* Size variants - Horizontal */
+.ds-media-card--horizontal.ds-media-card--sm .ds-media-card__image-container {
+  width: 48px;
+  height: 48px;
+}
+
+.ds-media-card--horizontal.ds-media-card--md .ds-media-card__image-container {
+  width: 64px;
+  height: 64px;
+}
+
+.ds-media-card--horizontal.ds-media-card--lg .ds-media-card__image-container {
+  width: 80px;
+  height: 80px;
+}
+
+/* Vertical layout - square artwork */
+.ds-media-card--vertical .ds-media-card__image-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* ===========================================
+   Image element
+   =========================================== */
+.ds-media-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.ds-media-card__image--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-gray-400);
+}
+
+/* ===========================================
+   Badge (explicit marker, etc.)
+   =========================================== */
+.ds-media-card__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray-600);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+/* ===========================================
+   Content area
+   =========================================== */
+.ds-media-card__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ds-media-card--vertical .ds-media-card__content {
+  padding: var(--space-3);
+}
+
+/* Title */
+.ds-media-card__title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-gray-900);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ds-media-card--lg .ds-media-card__title {
+  font-size: var(--text-mono-base);
+  -webkit-line-clamp: 2;
+}
+
+/* Subtitle */
+.ds-media-card__subtitle {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  color: var(--color-gray-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Description */
+.ds-media-card__description {
+  margin: 0;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  color: var(--color-gray-500);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ds-media-card__description--lines-1 {
+  -webkit-line-clamp: 1;
+}
+
+.ds-media-card__description--lines-2 {
+  -webkit-line-clamp: 2;
+}
+
+.ds-media-card__description--lines-3 {
+  -webkit-line-clamp: 3;
+}
+
+/* Metadata */
+.ds-media-card__metadata {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  color: var(--color-gray-400);
+}
+
+/* ===========================================
+   Actions slot
+   =========================================== */
+.ds-media-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.ds-media-card--vertical .ds-media-card__actions {
+  padding: 0 var(--space-3) var(--space-3);
+  justify-content: flex-end;
+}
+
+/* ===========================================
+   Search highlight - subtle, not distracting
+   =========================================== */
+.ds-media-card__highlight {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: var(--font-medium);
+}
+
+/* ===========================================
+   Mobile adjustments
+   =========================================== */
+@media (max-width: 640px) {
+  .ds-media-card--horizontal {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
+  .ds-media-card--horizontal.ds-media-card--md .ds-media-card__image-container {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ds-media-card--horizontal.ds-media-card--lg .ds-media-card__image-container {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ds-media-card__title {
+    font-size: var(--text-mono-xs);
+  }
+
+  .ds-media-card--lg .ds-media-card__title {
+    font-size: var(--text-mono-sm);
+  }
+}

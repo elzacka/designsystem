@@ -32,3 +32,6 @@ export { MoonIcon } from './MoonIcon';
 
 // Status
 export { WifiOffIcon } from './WifiOffIcon';
+
+// Vurdering
+export { StarIcon } from './StarIcon';

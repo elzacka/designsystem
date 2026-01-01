@@ -1,0 +1,83 @@
+.ds-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+}
+
+/* Variants */
+.ds-card--elevated {
+  background-color: var(--color-background);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.ds-card--outlined {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-gray-200);
+}
+
+.ds-card--filled {
+  background-color: var(--color-gray-50);
+  border: 1px solid transparent;
+}
+
+/* Padding */
+.ds-card--padding-none {
+  padding: 0;
+}
+
+.ds-card--padding-sm {
+  padding: var(--space-3);
+}
+
+.ds-card--padding-md {
+  padding: var(--space-4);
+}
+
+.ds-card--padding-lg {
+  padding: var(--space-6);
+}
+
+/* Interactive */
+.ds-card--interactive {
+  cursor: pointer;
+}
+
+.ds-card--interactive:hover {
+  border-color: var(--color-gray-300);
+}
+
+.ds-card--elevated.ds-card--interactive:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ds-card--filled.ds-card--interactive:hover {
+  background-color: var(--color-gray-100);
+}
+
+.ds-card--interactive:active {
+  transform: scale(0.99);
+}
+
+.ds-card--interactive:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Selected */
+.ds-card--selected {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+}
+
+.ds-card--selected.ds-card--interactive:hover {
+  border-color: var(--color-primary-600);
+  background-color: var(--color-primary-100);
+}

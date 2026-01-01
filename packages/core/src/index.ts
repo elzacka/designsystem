@@ -29,6 +29,7 @@ export * from './components/Tag';
 export * from './components/Avatar';
 export * from './components/Skeleton';
 export * from './components/ProgressBar';
+export * from './components/Card';
 
 // Navigation
 export * from './components/Tabs';

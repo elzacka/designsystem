@@ -14,6 +14,7 @@ export default tseslint.config(
       '**/storybook-static/**',
       '**/coverage/**',
       '**/.storybook/**',
+      'apps/lyttejeger/**',
     ],
   },
 

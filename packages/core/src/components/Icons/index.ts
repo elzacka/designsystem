@@ -105,6 +105,8 @@ export {
   MoonIcon,
   // Status
   WifiOffIcon,
+  // Vurdering
+  StarIcon,
 } from './lyttejeger';
 
 export type { IconProps as SvgIconProps } from './CloseIcon';
