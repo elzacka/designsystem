@@ -64,8 +64,11 @@ jobs:
           cp designsystem/apps/lyttejeger/index.html lyttejeger/
           cp designsystem/apps/lyttejeger/vite.config.ts lyttejeger/
           cp designsystem/apps/lyttejeger/tsconfig*.json lyttejeger/
-          cp designsystem/apps/lyttejeger/package.json lyttejeger/
           cp designsystem/apps/lyttejeger/CLAUDE.md lyttejeger/ 2>/dev/null || true
+
+          # Transform package.json: remove workspace: dependencies (they're copied locally)
+          jq 'del(.dependencies["@designsystem/core"], .dependencies["@designsystem/tokens"]) | .name = "lyttejeger"' \
+            designsystem/apps/lyttejeger/package.json > lyttejeger/package.json
 
       - name: Transform imports for standalone
         working-directory: lyttejeger
