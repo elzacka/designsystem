@@ -17,6 +17,10 @@ export interface SheetProps {
   snapPoints?: number[];
   modal?: boolean;
   className?: string;
+  /** ID of element that labels this sheet for accessibility */
+  'aria-labelledby'?: string;
+  /** Accessible label for this sheet */
+  'aria-label'?: string;
 }
 
 const DRAG_CLOSE_THRESHOLD = 100;
@@ -32,6 +36,8 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
       dismissible = true,
       modal = true,
       className,
+      'aria-labelledby': ariaLabelledby,
+      'aria-label': ariaLabel,
     },
     ref
   ) => {
@@ -112,6 +118,8 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(
               ref={ref}
               role="dialog"
               aria-modal={modal}
+              aria-labelledby={ariaLabelledby}
+              aria-label={ariaLabel}
               className={cn('ds-sheet', `ds-sheet--${position}`, `ds-sheet--${size}`, className)}
               initial={getInitialPosition()}
               animate={{ x: 0, y: 0 }}
