@@ -17,9 +17,9 @@ Distraksjonsfri podcast-app for å finne det du vil høre. Bygget med React 19, 
 ```bash
 npm install
 
-# Opprett .env.local med API-nøkler
-VITE_PODCASTINDEX_API_KEY=din_nøkkel
-VITE_PODCASTINDEX_API_SECRET=din_hemmelighet
+# Opprett .env.local med API-nøkler fra podcastindex.org
+echo 'VITE_PODCASTINDEX_API_KEY=din_key' >> .env.local
+echo 'VITE_PODCASTINDEX_API_SECRET=din_secret' >> .env.local
 
 npm run dev     # Start på localhost:5175
 npm run build   # Bygg for produksjon
