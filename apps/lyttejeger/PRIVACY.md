@@ -1,6 +1,6 @@
 # Personvernerklæring for Lyttejeger
 
-_Sist oppdatert: 7. desember 2025_
+_Sist oppdatert: 3. januar 2026_
 
 ## Kort oppsummert
 
@@ -12,10 +12,11 @@ Lyttejeger samler ikke inn personopplysninger. Appen kjører i nettleseren din o
 
 ### Lokal lagring
 
-Appen kan lagre følgende lokalt i nettleseren din (localStorage):
+Appen lagrer følgende lokalt i nettleseren din (IndexedDB):
 
-- Dine filterinnstillinger
-- Søkehistorikk (kun på din enhet)
+- Avspillingsposisjon (hvor langt du har hørt i hver episode)
+- Spillekø (episoder du har lagt i kø)
+- Abonnementer (podcaster du følger)
 - PWA-cache for offline-bruk
 
 Denne informasjonen forlater aldri enheten din og kan slettes ved å tømme nettleserdata.
