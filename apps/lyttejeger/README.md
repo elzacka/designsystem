@@ -29,11 +29,12 @@ npm run build   # Bygg for produksjon
 
 React 19 | TypeScript | Vite | Podcast Index API | Dexie (IndexedDB) | PWA/Workbox
 
-## Personvern
+## Personvern og sikkerhet
 
 - Ingen sporing eller analytics
 - Alle ressurser selvhostet (ingen Google Fonts/CDN)
 - Data lagres lokalt i nettleseren
+- CSP-headers for XSS-beskyttelse
 
 ## Lisens
 
