@@ -18,6 +18,8 @@ export { VolumeXIcon } from './VolumeXIcon';
 export { ListMusicIcon } from './ListMusicIcon';
 export { ListPlusIcon } from './ListPlusIcon';
 export { GripVerticalIcon } from './GripVerticalIcon';
+export { ChapterListIcon } from './ChapterListIcon';
+export { FileTextIcon } from './FileTextIcon';
 
 // Podcast
 export { PodcastIcon } from './PodcastIcon';

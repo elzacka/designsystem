@@ -94,6 +94,8 @@ export {
   ListMusicIcon,
   ListPlusIcon,
   GripVerticalIcon,
+  ChapterListIcon,
+  FileTextIcon as TranscriptIcon,
   // Podcast
   PodcastIcon,
   HeadphonesIcon,
