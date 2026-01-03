@@ -90,6 +90,8 @@ export {
   // Lyd
   Volume2Icon,
   VolumeXIcon,
+  AudioLinesIcon,
+  RadioIcon,
   // Spilleliste og kø
   ListMusicIcon,
   ListPlusIcon,

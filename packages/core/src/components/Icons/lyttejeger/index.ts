@@ -13,6 +13,8 @@ export { RotateCwIcon } from './RotateCwIcon';
 // Lyd
 export { Volume2Icon } from './Volume2Icon';
 export { VolumeXIcon } from './VolumeXIcon';
+export { AudioLinesIcon } from './AudioLinesIcon';
+export { RadioIcon } from './RadioIcon';
 
 // Spilleliste og kø
 export { ListMusicIcon } from './ListMusicIcon';
