@@ -8,6 +8,7 @@ Distraksjonsfri podcast-app for å finne det du vil høre. Bygget med React 19, 
 
 - **Søk** - Hybrid søk med tittel + term matching, søkeoperatorer (`AND`, `OR`, `"frase"`, `-ekskluder`)
 - **Filtre** - Språk, kategori, årstall, oppdagelsesmodus (indie, value4value)
+- **Oppdagelse** - Kuraterte anbefalinger og tilfeldige episoder på forsiden
 - **Avspiller** - Hastighet, søvntimer, kapitler, transkripsjoner, Bluetooth/bilstereo-støtte
 - **Bibliotek** - Abonnementer, spillekø, nyeste episoder
 - **PWA** - Installerbar, offline-støtte, responsivt design
